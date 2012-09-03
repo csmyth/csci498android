@@ -7,5 +7,6 @@
     <string name="name_tag">Name: </string>
     
     <string name="save_button_title">Save</string>
+    <string name="type_tag">Type: </string>
 
 </resources>
