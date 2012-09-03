@@ -5,8 +5,7 @@
     android:stretchColumns="1" >
 
     <TableRow>
-        <TextView android:text="@string/name_tag" />
-
+        <TextView android:text="@string/name_tag" />
         <EditText
             android:id="@+id/name"
             android:inputType="textCapWords" />
@@ -14,8 +13,7 @@
     </TableRow>
 
     <TableRow>
-        <TextView android:text="@string/name_tag" />
-
+        <TextView android:text="@string/addr_tag" />
         <EditText
             android:id="@+id/addr"
             android:inputType="textPostalAddress" />
