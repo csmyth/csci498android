@@ -19,8 +19,7 @@
 	
 	    <TableRow>
 	        <TextView android:text="@string/addr_tag" />
-	        <EditText
-	            android:id="@+id/addr"
+	        <AutoCompleteTextView android:id="@+id/addr"
 	            android:inputType="textPostalAddress" />	
 	    </TableRow>
 	
