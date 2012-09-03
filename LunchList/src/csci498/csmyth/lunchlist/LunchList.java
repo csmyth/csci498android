@@ -17,9 +17,9 @@ public class LunchList extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_list);
     
-        RadioButton extra1 = new RadioButton(null);
-        RadioGroup types = (RadioGroup)findViewById(R.id.types);
-        types.addView(extra1);
+        //RadioButton extra1 = new RadioButton(null);
+        //RadioGroup types = (RadioGroup)findViewById(R.id.types);
+        //types.addView(extra1);
         
         Button save = (Button)findViewById(R.id.save);
         
