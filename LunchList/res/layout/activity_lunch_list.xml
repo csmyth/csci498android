@@ -14,13 +14,17 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name: " />
+            android:text="Name: "
+            android:textStyle="italic" />
 
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10" />
+            android:ems="10"
+            android:inputType="textCapWords"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -34,12 +38,16 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address: " />
+            android:text="Address: "
+            android:textStyle="italic" />
 
         <EditText
             android:id="@+id/addr"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPostalAddress"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <Button
