@@ -14,7 +14,7 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name: "
+            android:text="@string/name_tag"
             android:textStyle="italic" />
 
         <EditText
@@ -38,7 +38,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address: "
+            android:text="@string/addr_tag"
             android:textStyle="italic" />
 
         <EditText
@@ -56,6 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/linearLayout2"
-        android:text="Save" />
+        android:text="@string/save_button_title" />
 
 </RelativeLayout>
