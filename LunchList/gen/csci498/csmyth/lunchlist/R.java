@@ -20,7 +20,7 @@ public final class R {
         public static final int details=0x7f070000;
         public static final int menu_settings=0x7f070009;
         public static final int name=0x7f070001;
-        public static final int restaurants=0x7f070008;
+        public static final int restaurant_spinner=0x7f070008;
         public static final int save=0x7f070007;
         public static final int sit_down=0x7f070005;
         public static final int take_out=0x7f070004;
