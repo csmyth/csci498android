@@ -21,10 +21,10 @@
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:ems="10" />
-
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -39,11 +39,15 @@
         <EditText
             android:id="@+id/addr"
             android:layout_width="250dp"
-            android:layout_height="wrap_content" >
-
-            <requestFocus />
-        </EditText>
-
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout2"
+        android:text="Save" />
 
 </RelativeLayout>
