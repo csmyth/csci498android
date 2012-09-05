@@ -8,8 +8,8 @@
     
     <string name="save_button_title">Save</string>
     <string name="type_tag">Type: </string>
-    <string name="sit_down">sit_down</string>
-    <string name="take_out">take_out</string>
-    <string name="delivery">delivery</string>
+    <string name="sit_down">Sit-Down</string>
+    <string name="take_out">Take-Out</string>
+    <string name="delivery">Delivery</string>
 
 </resources>
