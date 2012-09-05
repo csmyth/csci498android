@@ -22,7 +22,8 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="TextView"
-                android:textColor="#F9A94F" />
+                android:textColor="#F9A94F"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/address"
