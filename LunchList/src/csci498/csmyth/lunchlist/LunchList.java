@@ -29,6 +29,18 @@ public class LunchList extends Activity {
 			super(LunchList.this, android.R.layout.simple_list_item_1, model);
 		}
 		
+		/*Code for the overrides of getViewTypeCount() and getItemViewType() prompted by: 
+			http://stackoverflow.com/questions/5300962/getviewtypecount-and-getitemviewtype-methods-of-arrayadapter */		
+		@Override
+		public int getViewTypeCount() {
+			return 3;
+		}
+		
+		@Override
+		public int getItemViewType(int position) {
+			return position % 3;
+		}
+		
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View row = convertView;
 			RestaurantHolder holder = null;
