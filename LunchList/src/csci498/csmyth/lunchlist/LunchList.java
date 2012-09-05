@@ -45,10 +45,10 @@ public class LunchList extends Activity {
 			
 			ImageView icon = (ImageView)row.findViewById(R.id.icon);
 			
-			if (r.getType().equals("sit_down")) {
+			if (r.getType().equals("@string/sit_down")) {
 				icon.setImageResource(R.drawable.ball_red);
 			}
-			else if (r.getType().equals("take_out")) {
+			else if (r.getType().equals("@string/take_out")) {
 				icon.setImageResource(R.drawable.ball_yellow);
 			}
 			else {
@@ -99,15 +99,15 @@ public class LunchList extends Activity {
 			
 			switch (types.getCheckedRadioButtonId()) {
 			case R.id.sit_down:
-				r.setType("sit_down");
+				r.setType("@string/sit_down");
 				break;
 				
 			case R.id.take_out:
-				r.setType("take_out");
+				r.setType("@string/take_out");
 				break;
 				
 			case R.id.delivery:
-				r.setType("delivery");
+				r.setType("@string/delivery");
 				break;
 			}
 			

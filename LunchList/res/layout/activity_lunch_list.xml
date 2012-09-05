@@ -34,18 +34,18 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:checked="true"
-	                android:text="Take-Out" />	
+	                android:text="@string/take_out" />	
 	            <RadioButton
 	                android:id="@+id/sit_down"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="Sit-Down" />
+	                android:text="@string/sit_down" />
 	
 	            <RadioButton
 	                android:id="@+id/delivery"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:text="Delivery" />
+	                android:text="@string/delivery" />
 	
 	        </RadioGroup>
 	

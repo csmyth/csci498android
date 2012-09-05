@@ -42,10 +42,13 @@ public final class R {
     public static final class string {
         public static final int addr_tag=0x7f040002;
         public static final int app_name=0x7f040000;
+        public static final int delivery=0x7f04000a;
         public static final int hello_world=0x7f040001;
         public static final int menu_settings=0x7f040003;
         public static final int name_tag=0x7f040005;
         public static final int save_button_title=0x7f040006;
+        public static final int sit_down=0x7f040008;
+        public static final int take_out=0x7f040009;
         public static final int title_activity_lunch_list=0x7f040004;
         public static final int type_tag=0x7f040007;
     }
