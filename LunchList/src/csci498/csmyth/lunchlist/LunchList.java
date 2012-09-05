@@ -59,6 +59,34 @@ public class LunchList extends Activity {
 		}
 	}
 	
+	static class RestaurantHolder {
+		private TextView name = null;
+		private TextView address = null;
+		private ImageView icon = null;
+		
+		RestaurantHolder(View row) {
+			name = (TextView)row.findViewById(R.id.title);
+			address = (TextView)row.findViewById(R.id.address);
+			icon = (ImageView)row.findViewById(R.id.icon);
+		}
+		
+		void populateFrom(Restaurant r) {
+			name.setText(r.getName());
+			address.setText(r.getAddress());
+			
+			if (r.getType().equals("@string/sit_down")) {
+				icon.setImageResource(R.drawable.ball_red);
+			}
+			else if (r.getType().equals("@string/take_out")) {
+				icon.setImageResource(R.drawable.ball_yellow);
+			}
+			else {
+				icon.setImageResource(R.drawable.ball_green);
+			}
+		}
+		
+	}
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
