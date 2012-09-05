@@ -21,7 +21,8 @@
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#F9A94F" />
 
             <TextView
                 android:id="@+id/address"

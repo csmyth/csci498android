@@ -24,13 +24,18 @@ public class LunchList extends Activity {
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
 	
+	static final int ROW_TYPE_TAKE_OUT = 1;
+	static final int ROW_TYPE_SIT_DOWN = 2;
+	static final int ROW_TYPE_DELIVERY = 3;
+	
 	class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 		RestaurantAdapter() {
 			super(LunchList.this, android.R.layout.simple_list_item_1, model);
 		}
 		
 		/*Code for the overrides of getViewTypeCount() and getItemViewType() prompted by: 
-			http://stackoverflow.com/questions/5300962/getviewtypecount-and-getitemviewtype-methods-of-arrayadapter */		
+			http://stackoverflow.com/questions/5300962/getviewtypecount-and-getitemviewtype-methods-of-arrayadapter
+			and class discussion on Piazza */		
 		@Override
 		public int getViewTypeCount() {
 			return 3;
@@ -38,7 +43,14 @@ public class LunchList extends Activity {
 		
 		@Override
 		public int getItemViewType(int position) {
-			return position % 3;
+			String type = model.get(position).getType();
+			if (type.equals("@string/take_out")) {
+				return ROW_TYPE_TAKE_OUT;
+			} else if (type.equals("@string/sit_down")) {
+				return ROW_TYPE_SIT_DOWN;
+			} else {
+				return ROW_TYPE_DELIVERY;
+			}
 		}
 		
 		public View getView(int position, View convertView, ViewGroup parent) {
@@ -48,7 +60,16 @@ public class LunchList extends Activity {
 			if (row == null) {
 				LayoutInflater inflater = getLayoutInflater();
 				
-				row = inflater.inflate(R.layout.row, parent, false);
+				int view_type = getItemViewType(position);
+				
+				if (view_type == ROW_TYPE_TAKE_OUT) {
+					row = inflater.inflate(R.layout.row, parent, false);
+				} else if (view_type == ROW_TYPE_SIT_DOWN) {
+					row = inflater.inflate(R.layout.row2, parent, false);
+				} else {
+					row = inflater.inflate(R.layout.row3, parent, false);
+				}
+				
 				holder = new RestaurantHolder(row);
 				row.setTag(holder);
 			} else {
