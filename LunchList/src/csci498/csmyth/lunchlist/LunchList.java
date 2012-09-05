@@ -90,14 +90,12 @@ public class LunchList extends Activity {
         save.setOnClickListener(onSave);
         
         Spinner spin = (Spinner)findViewById(R.id.restaurant_spinner);
-        
         adapter = new RestaurantAdapter();
         spin.setAdapter(adapter);
         
         AutoCompleteTextView auto_complete_addr = (AutoCompleteTextView)findViewById(R.id.addr);
         addr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
         auto_complete_addr.setAdapter(addr_adapter);
-        
         
     }
 
@@ -125,6 +123,12 @@ public class LunchList extends Activity {
 			case R.id.delivery:
 				r.setType("@string/delivery");
 				break;
+			}
+			
+			for (int i = 0; i < model.size(); i++) {
+				if (model.get(i).getName().toString().equals(r.getName().toString())) {
+					r.setName(name.getText().toString() + "*");
+				}
 			}
 			
 			adapter.add(r);
