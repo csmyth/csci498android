@@ -31,29 +31,19 @@ public class LunchList extends Activity {
 		
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View row = convertView;
+			RestaurantHolder holder = null;
 			
 			if (row == null) {
 				LayoutInflater inflater = getLayoutInflater();
 				
-				row = inflater.inflate(R.layout.row, null);
+				row = inflater.inflate(R.layout.row, parent, false);
+				holder = new RestaurantHolder(row);
+				row.setTag(holder);
+			} else {
+				holder = (RestaurantHolder)row.getTag();
 			}
 			
-			Restaurant r = model.get(position);
-			
-			((TextView)row.findViewById(R.id.title)).setText(r.getName());
-			((TextView)row.findViewById(R.id.address)).setText(r.getAddress());
-			
-			ImageView icon = (ImageView)row.findViewById(R.id.icon);
-			
-			if (r.getType().equals("@string/sit_down")) {
-				icon.setImageResource(R.drawable.ball_red);
-			}
-			else if (r.getType().equals("@string/take_out")) {
-				icon.setImageResource(R.drawable.ball_yellow);
-			}
-			else {
-				icon.setImageResource(R.drawable.ball_green);
-			}
+			holder.populateFrom(model.get(position));
 			
 			return row;
 		}
@@ -76,11 +66,9 @@ public class LunchList extends Activity {
 			
 			if (r.getType().equals("@string/sit_down")) {
 				icon.setImageResource(R.drawable.ball_red);
-			}
-			else if (r.getType().equals("@string/take_out")) {
+			} else if (r.getType().equals("@string/take_out")) {
 				icon.setImageResource(R.drawable.ball_yellow);
-			}
-			else {
+			} else {
 				icon.setImageResource(R.drawable.ball_green);
 			}
 		}
