@@ -2,9 +2,8 @@ package csci498.csmyth.lunchlist;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.os.Bundle;
-import android.app.Activity;
+import android.app.TabActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TabHost;
 import android.widget.TextView;
 
-public class LunchList extends Activity {
+public class LunchList extends TabActivity {
 	List<Restaurant> model = new ArrayList<Restaurant>();
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
@@ -128,6 +127,19 @@ public class LunchList extends Activity {
         AutoCompleteTextView auto_complete_addr = (AutoCompleteTextView)findViewById(R.id.addr);
         addr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
         auto_complete_addr.setAdapter(addr_adapter);
+        
+        TabHost.TabSpec spec=getTabHost().newTabSpec("tag1");
+        
+        spec.setContent(R.id.restaurants);
+        spec.setIndicator("List", getResources().getDrawable(R.drawable.list));
+        getTabHost().addTab(spec);
+        
+        spec=getTabHost().newTabSpec("tag2");
+        spec.setContent(R.id.details);
+        spec.setIndicator("Details", getResources().getDrawable(R.drawable.restaurant));
+        getTabHost().addTab(spec);
+        
+        getTabHost().setCurrentTab(0);
         
     }
 
