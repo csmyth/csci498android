@@ -7,6 +7,7 @@ import android.app.TabActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -117,12 +118,12 @@ public class LunchList extends TabActivity {
         //types.addView(extra1);
         
         Button save = (Button)findViewById(R.id.save);
-        
         save.setOnClickListener(onSave);
         
         ListView list = (ListView)findViewById(R.id.restaurants);
         adapter = new RestaurantAdapter();
         list.setAdapter(adapter);
+        list.setOnItemClickListener(onListClick);
         
         AutoCompleteTextView auto_complete_addr = (AutoCompleteTextView)findViewById(R.id.addr);
         addr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
@@ -179,6 +180,12 @@ public class LunchList extends TabActivity {
 			addr_adapter.add(r.getAddress());
 		}
 		
+	};
+	
+	private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener() {
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			
+		}
 	};
 	
 }
