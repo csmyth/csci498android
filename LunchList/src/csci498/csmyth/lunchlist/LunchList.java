@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 public class LunchList extends Activity {
@@ -122,9 +121,9 @@ public class LunchList extends Activity {
         
         save.setOnClickListener(onSave);
         
-        Spinner spin = (Spinner)findViewById(R.id.restaurant_spinner);
+        ListView list = (ListView)findViewById(R.id.restaurants);
         adapter = new RestaurantAdapter();
-        spin.setAdapter(adapter);
+        list.setAdapter(adapter);
         
         AutoCompleteTextView auto_complete_addr = (AutoCompleteTextView)findViewById(R.id.addr);
         addr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
