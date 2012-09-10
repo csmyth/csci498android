@@ -136,13 +136,13 @@ public class LunchList extends TabActivity {
         addr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
         auto_complete_addr.setAdapter(addr_adapter);
         
-        TabHost.TabSpec spec=getTabHost().newTabSpec("tag1");
+        TabHost.TabSpec spec = getTabHost().newTabSpec("tag1");
         
         spec.setContent(R.id.restaurants);
         spec.setIndicator("List", getResources().getDrawable(R.drawable.list));
         getTabHost().addTab(spec);
         
-        spec=getTabHost().newTabSpec("tag2");
+        spec = getTabHost().newTabSpec("tag2");
         spec.setContent(R.id.details);
         spec.setIndicator("Details", getResources().getDrawable(R.drawable.restaurant));
         getTabHost().addTab(spec);
@@ -152,7 +152,6 @@ public class LunchList extends TabActivity {
     }
 
     private View.OnClickListener onSave = new View.OnClickListener() {
-
     	public void onClick(View v) {
 			Restaurant r = new Restaurant();
 			
