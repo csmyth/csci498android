@@ -115,9 +115,9 @@ public class LunchList extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_list);
         
-        EditText name = (EditText)findViewById(R.id.name);
-		EditText address = (EditText)findViewById(R.id.addr);
-		RadioGroup types = (RadioGroup)findViewById(R.id.types);
+        name = (EditText)findViewById(R.id.name);
+		address = (EditText)findViewById(R.id.addr);
+		types = (RadioGroup)findViewById(R.id.types);
     
         //TODO: Tutorial #3 Extra Credit: Excessive RadioButtons via Java
         //RadioButton extra1 = new RadioButton(null);
@@ -199,6 +199,8 @@ public class LunchList extends TabActivity {
 			} else {
 				types.check(R.id.delivery);
 			}
+			
+			getTabHost().setCurrentTab(1);
 		}
 	};
 	
