@@ -22,6 +22,9 @@ public class LunchList extends TabActivity {
 	List<Restaurant> model = new ArrayList<Restaurant>();
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
+	EditText name = null;
+	EditText address = null;
+	RadioGroup types = null;
 	
 	static final int ROW_TYPE_TAKE_OUT = 1;
 	static final int ROW_TYPE_SIT_DOWN = 2;
@@ -111,6 +114,10 @@ public class LunchList extends TabActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_list);
+        
+        EditText name = (EditText)findViewById(R.id.name);
+		EditText address = (EditText)findViewById(R.id.addr);
+		RadioGroup types = (RadioGroup)findViewById(R.id.types);
     
         //TODO: Tutorial #3 Extra Credit: Excessive RadioButtons via Java
         //RadioButton extra1 = new RadioButton(null);
@@ -148,13 +155,9 @@ public class LunchList extends TabActivity {
 
     	public void onClick(View v) {
 			Restaurant r = new Restaurant();
-			EditText name = (EditText)findViewById(R.id.name);
-			EditText address = (EditText)findViewById(R.id.addr);
 			
 			r.setName(name.getText().toString());
 			r.setAddress(address.getText().toString());
-			
-			RadioGroup types = (RadioGroup)findViewById(R.id.types);
 			
 			switch (types.getCheckedRadioButtonId()) {
 			case R.id.sit_down:
@@ -184,7 +187,18 @@ public class LunchList extends TabActivity {
 	
 	private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener() {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			Restaurant r = model.get(position);
 			
+			name.setText(r.getName());
+			address.setText(r.getAddress());
+			
+			if (r.getType().equals("@string/sit_down")) {
+				types.check(R.id.sit_down);
+			} else if (r.getType().equals("@string/take_out")) {
+				types.check(R.id.take_out);
+			} else {
+				types.check(R.id.delivery);
+			}
 		}
 	};
 	
