@@ -32,7 +32,7 @@ public class LunchList extends TabActivity {
 	
 	class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 		RestaurantAdapter() {
-			super(LunchList.this, android.R.layout.simple_list_item_1, model);
+			super(LunchList.this, R.layout.row, model);
 		}
 		
 		/*Code for the overrides of getViewTypeCount() and getItemViewType() prompted by: 
@@ -58,11 +58,11 @@ public class LunchList extends TabActivity {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View row = convertView;
 			RestaurantHolder holder = null;
+			int view_type = getItemViewType(position);
 			
 			if (row == null) {
 				LayoutInflater inflater = getLayoutInflater();
 				
-				int view_type = getItemViewType(position);
 				
 				if (view_type == ROW_TYPE_TAKE_OUT) {
 					row = inflater.inflate(R.layout.row, parent, false);
@@ -80,7 +80,7 @@ public class LunchList extends TabActivity {
 			
 			holder.populateFrom(model.get(position));
 			
-			return row;
+			return (row);
 		}
 	}
 	
