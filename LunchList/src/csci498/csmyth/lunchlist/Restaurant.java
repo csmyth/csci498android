@@ -1,10 +1,10 @@
 package csci498.csmyth.lunchlist;
 
 public class Restaurant {
-	
 	private String name = "";
 	private String address = "";
 	private String type = "";
+	private String notes = "";
 	
 	public String getName() {
 		return name;
@@ -30,8 +30,16 @@ public class Restaurant {
 		this.type = type;
 	}
 	
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+	
 	public String toString() {
 		return (getName());
 	}
-		
+
 }
