@@ -1,6 +1,7 @@
 package csci498.csmyth.lunchlist;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import android.os.Bundle;
 import android.app.TabActivity;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -25,6 +27,7 @@ public class LunchList extends TabActivity {
 	EditText name = null;
 	EditText address = null;
 	RadioGroup types = null;
+	DatePicker date_picker = null;
 	
 	static final int ROW_TYPE_TAKE_OUT = 1;
 	static final int ROW_TYPE_SIT_DOWN = 2;
@@ -118,6 +121,7 @@ public class LunchList extends TabActivity {
         name = (EditText)findViewById(R.id.name);
 		address = (EditText)findViewById(R.id.addr);
 		types = (RadioGroup)findViewById(R.id.types);
+		date_picker = (DatePicker)findViewById(R.id.date_picker); 
     
         //TODO: Tutorial #3 Extra Credit: Excessive RadioButtons via Java
         //RadioButton extra1 = new RadioButton(null);
@@ -157,6 +161,8 @@ public class LunchList extends TabActivity {
 			
 			r.setName(name.getText().toString());
 			r.setAddress(address.getText().toString());
+			r.setDate(new Date(date_picker.getYear(), date_picker.getMonth(), date_picker.getDayOfMonth()));
+			int check = date_picker.getDayOfMonth();
 			
 			switch (types.getCheckedRadioButtonId()) {
 			case R.id.sit_down:
@@ -198,6 +204,9 @@ public class LunchList extends TabActivity {
 			} else {
 				types.check(R.id.delivery);
 			}
+			
+			date_picker.updateDate(r.getDate().getYear(), r.getDate().getMonth(), r.getDate().getDate());
+			int check = r.getDate().getDay();
 			
 			getTabHost().setCurrentTab(1);
 		}

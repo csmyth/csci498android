@@ -22,7 +22,7 @@ public final class R {
     public static final class id {
         public static final int addr=0x7f070003;
         public static final int address=0x7f07000c;
-        public static final int date=0x7f070008;
+        public static final int date_picker=0x7f070008;
         public static final int delivery=0x7f070007;
         public static final int details=0x7f070001;
         public static final int icon=0x7f07000a;

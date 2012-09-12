@@ -63,7 +63,7 @@
 		                </RadioGroup>
 					</TableRow>
 					
-		            <DatePicker android:id="@+id/date"
+		            <DatePicker android:id="@+id/date_picker"
 		                android:layout_width="match_parent"
 	            		android:layout_height="wrap_content"
 	            		android:calendarViewShown="false" />
