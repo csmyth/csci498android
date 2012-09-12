@@ -140,12 +140,16 @@ public class LunchList extends TabActivity {
         auto_complete_addr.setAdapter(addr_adapter);
         
         Button flip_btn = (Button)findViewById(R.id.flip_button);
+        flip_btn.setOnClickListener(onFlip);
         flip = (ViewFlipper)findViewById(R.id.flip);
     }
 
-    public void ClickHandler(View v) {
-    	flip.showNext();
-    }
+    private View.OnClickListener onFlip = new View.OnClickListener() {
+		
+		public void onClick(View v) {
+			flip.showNext();			
+		}
+	};
     
     private View.OnClickListener onSave = new View.OnClickListener() {
     	public void onClick(View v) {
