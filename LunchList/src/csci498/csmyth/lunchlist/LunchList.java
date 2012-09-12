@@ -25,10 +25,14 @@ public class LunchList extends TabActivity {
 	EditText name = null;
 	EditText address = null;
 	RadioGroup types = null;
+	EditText notes = null;
 	
 	static final int ROW_TYPE_TAKE_OUT = 1;
 	static final int ROW_TYPE_SIT_DOWN = 2;
 	static final int ROW_TYPE_DELIVERY = 3;
+	
+	static final int LIST_TAB = 0;
+	static final int DETAIL_TAB = 1;
 	
 	class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 		RestaurantAdapter() {
@@ -118,6 +122,7 @@ public class LunchList extends TabActivity {
         name = (EditText)findViewById(R.id.name);
 		address = (EditText)findViewById(R.id.addr);
 		types = (RadioGroup)findViewById(R.id.types);
+		notes = (EditText)findViewById(R.id.notes);
     
         //TODO: Tutorial #3 Extra Credit: Excessive RadioButtons via Java
         //RadioButton extra1 = new RadioButton(null);
@@ -147,7 +152,7 @@ public class LunchList extends TabActivity {
         spec.setIndicator("Details", getResources().getDrawable(R.drawable.restaurant));
         getTabHost().addTab(spec);
         
-        getTabHost().setCurrentTab(0);
+        getTabHost().setCurrentTab(LIST_TAB);
         
     }
 
@@ -157,6 +162,7 @@ public class LunchList extends TabActivity {
 			
 			r.setName(name.getText().toString());
 			r.setAddress(address.getText().toString());
+			r.setNotes(notes.getText().toString());
 			
 			switch (types.getCheckedRadioButtonId()) {
 			case R.id.sit_down:
@@ -190,6 +196,7 @@ public class LunchList extends TabActivity {
 			
 			name.setText(r.getName());
 			address.setText(r.getAddress());
+			notes.setText(r.getNotes());
 			
 			if (r.getType().equals("@string/sit_down")) {
 				types.check(R.id.sit_down);
@@ -199,7 +206,7 @@ public class LunchList extends TabActivity {
 				types.check(R.id.delivery);
 			}
 			
-			getTabHost().setCurrentTab(1);
+			getTabHost().setCurrentTab(DETAIL_TAB);
 		}
 	};
 	
