@@ -3,6 +3,7 @@ package csci498.csmyth.lunchlist;
 import java.util.ArrayList;
 import java.util.List;
 import android.os.Bundle;
+import android.app.Activity;
 import android.app.TabActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-public class LunchList extends TabActivity {
+public class LunchList extends Activity {
 	List<Restaurant> model = new ArrayList<Restaurant>();
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
