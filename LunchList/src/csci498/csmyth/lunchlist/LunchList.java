@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 public class LunchList extends TabActivity {
 	List<Restaurant> model = new ArrayList<Restaurant>();
@@ -25,6 +26,8 @@ public class LunchList extends TabActivity {
 	EditText name = null;
 	EditText address = null;
 	RadioGroup types = null;
+	
+	ViewFlipper flip = null;
 	
 	static final int ROW_TYPE_TAKE_OUT = 1;
 	static final int ROW_TYPE_SIT_DOWN = 2;
@@ -136,21 +139,14 @@ public class LunchList extends TabActivity {
         addr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
         auto_complete_addr.setAdapter(addr_adapter);
         
-        TabHost.TabSpec spec = getTabHost().newTabSpec("tag1");
-        
-        spec.setContent(R.id.restaurants);
-        spec.setIndicator("List", getResources().getDrawable(R.drawable.list));
-        getTabHost().addTab(spec);
-        
-        spec = getTabHost().newTabSpec("tag2");
-        spec.setContent(R.id.details);
-        spec.setIndicator("Details", getResources().getDrawable(R.drawable.restaurant));
-        getTabHost().addTab(spec);
-        
-        getTabHost().setCurrentTab(0);
-        
+        Button flip_btn = (Button)findViewById(R.id.flip_button);
+        flip = (ViewFlipper)findViewById(R.id.flip);
     }
 
+    public void ClickHandler(View v) {
+    	flip.showNext();
+    }
+    
     private View.OnClickListener onSave = new View.OnClickListener() {
     	public void onClick(View v) {
 			Restaurant r = new Restaurant();
@@ -199,7 +195,7 @@ public class LunchList extends TabActivity {
 				types.check(R.id.delivery);
 			}
 			
-			getTabHost().setCurrentTab(1);
+			
 		}
 	};
 	
