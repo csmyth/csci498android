@@ -26,7 +26,6 @@ public final class R {
         public static final int delivery=0x7f070007;
         public static final int details=0x7f070001;
         public static final int icon=0x7f07000a;
-        public static final int menu_settings=0x7f07000d;
         public static final int name=0x7f070002;
         public static final int notes=0x7f070008;
         public static final int restaurants=0x7f070000;
@@ -34,7 +33,7 @@ public final class R {
         public static final int sit_down=0x7f070006;
         public static final int take_out=0x7f070005;
         public static final int title=0x7f07000b;
-        public static final int toast=0x7f07000e;
+        public static final int toast=0x7f07000d;
         public static final int types=0x7f070004;
     }
     public static final class layout {
@@ -44,8 +43,7 @@ public final class R {
         public static final int row3=0x7f030003;
     }
     public static final class menu {
-        public static final int activity_lunch_list=0x7f060000;
-        public static final int option=0x7f060001;
+        public static final int option=0x7f060000;
     }
     public static final class string {
         public static final int addr_tag=0x7f040002;
