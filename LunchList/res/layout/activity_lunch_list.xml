@@ -21,9 +21,8 @@
         		android:id="@+id/restaurants"
         		android:layout_width="match_parent"
 		        android:layout_height="match_parent" />
-		    
-            <ScrollView android:id="@+id/details">
-			<TableLayout 
+		        
+			<TableLayout android:id="@+id/details"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
 	            android:stretchColumns="1"
@@ -66,7 +65,6 @@
 	                android:text="@string/save_button_title" />
 		            
 			</TableLayout>
-			</ScrollView>
 		            
 		</FrameLayout>
 		            
