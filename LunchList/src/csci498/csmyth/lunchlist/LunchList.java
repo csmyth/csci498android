@@ -3,6 +3,7 @@ package csci498.csmyth.lunchlist;
 import java.util.ArrayList;
 import java.util.List;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.app.TabActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -241,4 +242,15 @@ public class LunchList extends TabActivity {
 		}	
 	}
 	
+	private Runnable longTask = new Runnable() {
+		public void run() {
+			for (int i = 0; i < 20; i++) {
+				doSomeLongWork(500);
+			}
+		}
+	};
+	
+	private void doSomeLongWork(final int incr) {
+		SystemClock.sleep(250);
+	}
 }
