@@ -18,8 +18,7 @@ public final class R {
         public static final int ic_launcher=0x7f020004;
         public static final int list=0x7f020005;
         public static final int restaurant=0x7f020006;
-        public static final int run=0x7f020007;
-        public static final int toast=0x7f020008;
+        public static final int toast=0x7f020007;
     }
     public static final class id {
         public static final int addr=0x7f070003;

@@ -104,7 +104,7 @@ public class LunchList extends TabActivity {
 			Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 			
 			return(true);
-		}
+		} 
 		
 		return(super.onOptionsItemSelected(item));
 	}
