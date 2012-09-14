@@ -289,11 +289,14 @@ public class LunchList extends TabActivity {
 				doSomeLongWork(200);
 			}
 			
-			runOnUiThread(new Runnable() {
-				public void run() {
-					setProgressBarVisibility(false);
-				}
-			});
+			if (isActive.get()) {
+				runOnUiThread(new Runnable() {
+					public void run() {
+						setProgressBarVisibility(false);
+						progress = 0;
+					}
+				});
+			}
 		}
 	};
 
