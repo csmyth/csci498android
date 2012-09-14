@@ -249,7 +249,14 @@ public class LunchList extends TabActivity {
 	}
 	
 	private void doSomeLongWork(final int incr) {
-		SystemClock.sleep(250);
+		runOnUiThread(new Runnable() {
+			public void run() {
+				progress += incr;
+				setProgress(progress);
+			}
+		});
+		
+		SystemClock.sleep(250); // Yay, meaningless work!
 	}
 	
 	private Runnable longTask = new Runnable() {
