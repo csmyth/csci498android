@@ -105,7 +105,11 @@ public class LunchList extends TabActivity {
 			
 			return(true);
 		} else if (item.getItemId() == R.id.run) {
+			setProgressBarVisibility(true);
+			progress = 0;
 			new Thread(longTask).start();
+			
+			return(true);
 		}
 		
 		return(super.onOptionsItemSelected(item));
