@@ -242,6 +242,10 @@ public class LunchList extends TabActivity {
 		}	
 	}
 	
+	private void doSomeLongWork(final int incr) {
+		SystemClock.sleep(250);
+	}
+	
 	private Runnable longTask = new Runnable() {
 		public void run() {
 			for (int i = 0; i < 20; i++) {
@@ -249,8 +253,5 @@ public class LunchList extends TabActivity {
 			}
 		}
 	};
-	
-	private void doSomeLongWork(final int incr) {
-		SystemClock.sleep(250);
-	}
+
 }
