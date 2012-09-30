@@ -35,6 +35,7 @@ public class LunchList extends TabActivity {
 	RadioGroup types = null;
 	EditText notes = null;
 	Restaurant current = null;
+	RestaurantHelper helper = null;
 	
 	static final int ROW_TYPE_TAKE_OUT = 1;
 	static final int ROW_TYPE_SIT_DOWN = 2;
@@ -47,16 +48,12 @@ public class LunchList extends TabActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_list);
+        helper = new RestaurantHelper(this);
         
         name = (EditText)findViewById(R.id.name);
 		address = (EditText)findViewById(R.id.addr);
 		types = (RadioGroup)findViewById(R.id.types);
 		notes = (EditText)findViewById(R.id.notes);
-    
-        //TODO: Tutorial #3 Extra Credit: Excessive RadioButtons via Java
-        //RadioButton extra1 = new RadioButton(null);
-        //RadioGroup types = (RadioGroup)findViewById(R.id.types);
-        //types.addView(extra1);
         
         Button save = (Button)findViewById(R.id.save);
         save.setOnClickListener(onSave);
@@ -84,6 +81,13 @@ public class LunchList extends TabActivity {
         getTabHost().setCurrentTab(LIST_TAB);
         
     }
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		
+		helper.close();
+	}
 	
 	private View.OnClickListener onSave = new View.OnClickListener() {
     	public void onClick(View v) {
