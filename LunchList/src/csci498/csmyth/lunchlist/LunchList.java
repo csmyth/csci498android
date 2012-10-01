@@ -1,21 +1,12 @@
 package csci498.csmyth.lunchlist;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.app.TabActivity;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -27,7 +18,6 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class LunchList extends TabActivity {
 	Cursor model = null;
@@ -37,7 +27,6 @@ public class LunchList extends TabActivity {
 	EditText address = null;
 	RadioGroup types = null;
 	EditText notes = null;
-	Restaurant current = null;
 	RestaurantHelper helper = null;
 	
 	static final int ROW_TYPE_TAKE_OUT = 1;
