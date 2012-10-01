@@ -3,7 +3,7 @@
     <string name="app_name">LunchList</string>
     <string name="hello_world">Hello world!</string>
     <string name="addr_tag">Address: </string><string name="menu_settings">Settings</string>
-    <string name="title_activity_lunch_list">LunchList</string>
+    <string name="title_main">LunchList</string>
     <string name="name_tag">Name: </string>
     
     <string name="save_button_title">Save</string>
