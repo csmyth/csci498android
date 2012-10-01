@@ -30,6 +30,8 @@ public class LunchList extends ListActivity {
 	RestaurantHelper helper = null;
 	RestaurantAdapter adapter = null;
 	
+	public final static String ID_EXTRA = "csci498.csmyth.lunchlist._ID";
+	
 	static final int LIST_TAB = 0;
 	static final int DETAIL_TAB = 1;
 	
