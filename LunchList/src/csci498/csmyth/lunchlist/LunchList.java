@@ -3,6 +3,7 @@ package csci498.csmyth.lunchlist;
 import android.os.Bundle;
 import android.app.TabActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -107,21 +108,9 @@ public class LunchList extends TabActivity {
 	
 	private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener() {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			model.moveToPosition(position);
+			Intent i = new Intent(LunchList.this, DetailForm.class);
 			
-			name.setText(helper.getName(model));
-			address.setText(helper.getAddress(model));
-			notes.setText(helper.getNotes(model));
-			
-			if (helper.getType(model).equals("@string/sit_down")) {
-				types.check(R.id.sit_down);
-			} else if (helper.getType(model).equals("@string/take_out")) {
-				types.check(R.id.take_out);
-			} else {
-				types.check(R.id.delivery);
-			}
-			
-			getTabHost().setCurrentTab(DETAIL_TAB);
+			startActivity(i);
 		}
 	};
 	
