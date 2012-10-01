@@ -21,9 +21,6 @@ import android.widget.TextView;
 public class LunchList extends ListActivity {
 	public final static String ID_EXTRA = "csci498.csmyth.lunchlist._ID";
 	
-	static final int LIST_TAB = 0;
-	static final int DETAIL_TAB = 1;
-	
 	Cursor model = null;
 	EditText name = null;
 	EditText address = null;
