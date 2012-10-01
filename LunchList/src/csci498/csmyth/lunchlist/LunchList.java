@@ -58,8 +58,6 @@ public class LunchList extends TabActivity {
         adapter = new RestaurantAdapter(model);
         list.setAdapter(adapter);
         
-        list.setOnItemClickListener(onListClick);
-        
         AutoCompleteTextView auto_complete_addr = (AutoCompleteTextView)findViewById(R.id.addr);
         addr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
         auto_complete_addr.setAdapter(addr_adapter);
@@ -76,6 +74,8 @@ public class LunchList extends TabActivity {
         getTabHost().addTab(spec);
         
         getTabHost().setCurrentTab(LIST_TAB);
+        
+        list.setOnItemClickListener(onListClick);
         
     }
 	
