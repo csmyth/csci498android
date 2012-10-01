@@ -14,6 +14,8 @@ public class DetailForm extends Activity {
 	EditText notes = null;
 	RestaurantHelper helper = null;
 	
+	String restaurantId = null;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
