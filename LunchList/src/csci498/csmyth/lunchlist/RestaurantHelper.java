@@ -2,6 +2,7 @@ package csci498.csmyth.lunchlist;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -34,4 +35,9 @@ public class RestaurantHelper extends SQLiteOpenHelper {
 		getWritableDatabase().insert("restaurants", "name", cv);
 	}
 
+	public Cursor getAll() {
+		return(getReadableDatabase().rawQuery(
+				"SELECT_id, name, address, types, notes FROM restaurants ORDER BY name", null));
+	}
+	
 }
