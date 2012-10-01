@@ -105,11 +105,9 @@ public class LunchList extends TabActivity {
 			}
 			
 			helper.insert(name.getText().toString(), address.getText().toString(), type, notes.getText().toString());
+			model.requery();
 		}
 	};
-	
-	
-
 	
 	private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener() {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -145,12 +143,18 @@ public class LunchList extends TabActivity {
 		}
 		
 		public int getItemViewType(Cursor c) {
+			int current_position = c.getPosition();
+			c.moveToPosition(c.getCount() - 1);
 			String type = helper.getType(c);
+			
 			if (type.equals("@string/take_out")) {
+				c.moveToPosition(current_position);
 				return ROW_TYPE_TAKE_OUT;
 			} else if (type.equals("@string/sit_down")) {
+				c.moveToPosition(current_position);
 				return ROW_TYPE_SIT_DOWN;
 			} else {
+				c.moveToPosition(current_position);
 				return ROW_TYPE_DELIVERY;
 			}
 		}
