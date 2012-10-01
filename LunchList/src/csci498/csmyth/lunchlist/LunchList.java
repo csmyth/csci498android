@@ -30,7 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class LunchList extends TabActivity {
-	List<Restaurant> model = new ArrayList<Restaurant>();
+	Cursor model = null;
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
 	EditText name = null;
@@ -51,6 +51,7 @@ public class LunchList extends TabActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_list);
+        
         helper = new RestaurantHelper(this);
         
         name = (EditText)findViewById(R.id.name);
@@ -62,8 +63,12 @@ public class LunchList extends TabActivity {
         save.setOnClickListener(onSave);
         
         ListView list = (ListView)findViewById(R.id.restaurants);
-        adapter = new RestaurantAdapter();
+        
+        model = helper.getAll();
+        startManagingCursor(model);
+        adapter = new RestaurantAdapter(model);
         list.setAdapter(adapter);
+        
         list.setOnItemClickListener(onListClick);
         
         AutoCompleteTextView auto_complete_addr = (AutoCompleteTextView)findViewById(R.id.addr);
