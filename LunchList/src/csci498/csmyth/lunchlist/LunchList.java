@@ -29,10 +29,6 @@ public class LunchList extends TabActivity {
 	EditText notes = null;
 	RestaurantHelper helper = null;
 	
-	static final int ROW_TYPE_TAKE_OUT = 1;
-	static final int ROW_TYPE_SIT_DOWN = 2;
-	static final int ROW_TYPE_DELIVERY = 3;
-	
 	static final int LIST_TAB = 0;
 	static final int DETAIL_TAB = 1;
 	
@@ -134,56 +130,19 @@ public class LunchList extends TabActivity {
 			super(LunchList.this, c);
 		}
 		
-		/*Code for the overrides of getViewTypeCount() and getItemViewType() prompted by: 
-			http://stackoverflow.com/questions/5300962/getviewtypecount-and-getitemviewtype-methods-of-arrayadapter
-			and class discussion on Piazza */		
-		@Override
-		public int getViewTypeCount() {
-			return 3;
-		}
-		
-		public int getItemViewType(Cursor c) {			
-			int current_position = c.getPosition();
-			c.moveToPosition(c.getPosition());
-			String type = helper.getType(c);
-			
-			if (type.equals("@string/take_out")) {
-				c.moveToPosition(current_position);
-				return ROW_TYPE_TAKE_OUT;
-			} else if (type.equals("@string/sit_down")) {
-				c.moveToPosition(current_position);
-				return ROW_TYPE_SIT_DOWN;
-			} else {
-				c.moveToPosition(current_position);
-				return ROW_TYPE_DELIVERY;
-			}
-		}
-		
 		@Override
 		public void bindView(View row, Context ctxt, Cursor c) {
 			RestaurantHolder holder = (RestaurantHolder)row.getTag();
 			
 			holder.populateFrom(c, helper);
-			
-			model.requery();
 		}
 		
 		@Override
 		public View newView(Context ctxt, Cursor c, ViewGroup parent) {
 			LayoutInflater inflater = getLayoutInflater();
-			
-			int view_type = getItemViewType(c);
-			View row = null;
-			
-			if (view_type == ROW_TYPE_TAKE_OUT) {
-				row = inflater.inflate(R.layout.row, parent, false);
-			} else if (view_type == ROW_TYPE_SIT_DOWN) {
-				row = inflater.inflate(R.layout.row2, parent, false);
-			} else {
-				row = inflater.inflate(R.layout.row3, parent, false);
-			}
-			
+			View row = inflater.inflate(R.layout.row, parent, false);
 			RestaurantHolder holder = new RestaurantHolder(row);
+			
 			row.setTag(holder);
 		
 			return (row);
