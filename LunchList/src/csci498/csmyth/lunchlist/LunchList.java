@@ -142,9 +142,9 @@ public class LunchList extends TabActivity {
 			return 3;
 		}
 		
-		public int getItemViewType(Cursor c) {
+		public int getItemViewType(Cursor c) {			
 			int current_position = c.getPosition();
-			c.moveToPosition(c.getCount() - 1);
+			c.moveToPosition(c.getPosition());
 			String type = helper.getType(c);
 			
 			if (type.equals("@string/take_out")) {
