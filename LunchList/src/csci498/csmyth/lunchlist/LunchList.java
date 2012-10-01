@@ -55,13 +55,13 @@ public class LunchList extends ListActivity {
 		helper.close();
 	}
 	
-	private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener() {
-		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			Intent i = new Intent(LunchList.this, DetailForm.class);
-			
-			startActivity(i);
-		}
-	};
+	@Override
+	public void onListItemClick(ListView list, View view, int position, long id) {
+		Intent intent = new Intent(LunchList.this, DetailForm.class);
+		
+		intent.putExtra(ID_EXTRA, String.valueOf(id));
+		startActivity(intent);
+	}
 	
 	class RestaurantAdapter extends CursorAdapter {
 		RestaurantAdapter(Cursor c) {
