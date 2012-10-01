@@ -7,6 +7,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.app.TabActivity;
+import android.content.Context;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -131,9 +134,10 @@ public class LunchList extends TabActivity {
 		}
 	};
 	
-	class RestaurantAdapter extends ArrayAdapter<Restaurant> {
-		RestaurantAdapter() {
-			super(LunchList.this, R.layout.row, model);
+	
+	class RestaurantAdapter extends CursorAdapter {
+		RestaurantAdapter(Cursor c) {
+			super(LunchList.this, c);
 		}
 		
 		/*Code for the overrides of getViewTypeCount() and getItemViewType() prompted by: 
@@ -144,9 +148,8 @@ public class LunchList extends TabActivity {
 			return 3;
 		}
 		
-		@Override
-		public int getItemViewType(int position) {
-			String type = model.get(position).getType();
+		public int getItemViewType(Cursor c) {
+			String type = helper.getType(c);
 			if (type.equals("@string/take_out")) {
 				return ROW_TYPE_TAKE_OUT;
 			} else if (type.equals("@string/sit_down")) {
@@ -156,31 +159,31 @@ public class LunchList extends TabActivity {
 			}
 		}
 		
-		public View getView(int position, View convertView, ViewGroup parent) {
-			View row = convertView;
-			RestaurantHolder holder = null;
-			int view_type = getItemViewType(position);
+		@Override
+		public void bindView(View row, Context ctxt, Cursor c) {
+			RestaurantHolder holder = (RestaurantHolder)row.getTag();
 			
-			if (row == null) {
-				LayoutInflater inflater = getLayoutInflater();
-				
-				
-				if (view_type == ROW_TYPE_TAKE_OUT) {
-					row = inflater.inflate(R.layout.row, parent, false);
-				} else if (view_type == ROW_TYPE_SIT_DOWN) {
-					row = inflater.inflate(R.layout.row2, parent, false);
-				} else {
-					row = inflater.inflate(R.layout.row3, parent, false);
-				}
-				
-				holder = new RestaurantHolder(row);
-				row.setTag(holder);
+			holder.populateFrom(c, helper);
+		}
+		
+		@Override
+		public View newView(Context ctxt, Cursor c, ViewGroup parent) {
+			LayoutInflater inflater = getLayoutInflater();
+			
+			int view_type = getItemViewType(c);
+			View row;
+			
+			if (view_type == ROW_TYPE_TAKE_OUT) {
+				row = inflater.inflate(R.layout.row, parent, false);
+			} else if (view_type == ROW_TYPE_SIT_DOWN) {
+				row = inflater.inflate(R.layout.row2, parent, false);
 			} else {
-				holder = (RestaurantHolder)row.getTag();
+				row = inflater.inflate(R.layout.row3, parent, false);
 			}
 			
-			holder.populateFrom(model.get(position));
-			
+			RestaurantHolder holder = new RestaurantHolder(row);
+			row.setTag(holder);
+		
 			return (row);
 		}
 	}
