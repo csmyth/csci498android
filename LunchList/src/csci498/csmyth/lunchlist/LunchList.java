@@ -55,29 +55,6 @@ public class LunchList extends ListActivity {
 		helper.close();
 	}
 	
-	private View.OnClickListener onSave = new View.OnClickListener() {
-    	public void onClick(View v) {
-			String type = null;
-			
-			switch (types.getCheckedRadioButtonId()) {
-			case R.id.sit_down:
-				type = "@string/sit_down";
-				break;
-				
-			case R.id.take_out:
-				type = "@string/take_out";
-				break;
-				
-			case R.id.delivery:
-				type = "@string/delivery";
-				break;
-			}
-			
-			helper.insert(name.getText().toString(), address.getText().toString(), type, notes.getText().toString());
-			model.requery();
-		}
-	};
-	
 	private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener() {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			Intent i = new Intent(LunchList.this, DetailForm.class);
