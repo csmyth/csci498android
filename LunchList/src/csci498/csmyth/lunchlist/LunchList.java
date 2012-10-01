@@ -164,6 +164,8 @@ public class LunchList extends TabActivity {
 			RestaurantHolder holder = (RestaurantHolder)row.getTag();
 			
 			holder.populateFrom(c, helper);
+			
+			model.requery();
 		}
 		
 		@Override
