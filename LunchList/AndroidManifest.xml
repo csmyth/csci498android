@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="csci498.csmyth.lunchlist"
     android:versionCode="1"
@@ -21,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="DetailForm"></activity>
+        <activity android:name=".DetailForm"></activity>
     </application>
 
 </manifest>
