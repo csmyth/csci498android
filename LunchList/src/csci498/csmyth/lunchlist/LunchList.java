@@ -167,7 +167,7 @@ public class LunchList extends TabActivity {
 			LayoutInflater inflater = getLayoutInflater();
 			
 			int view_type = getItemViewType(c);
-			View row;
+			View row = null;
 			
 			if (view_type == ROW_TYPE_TAKE_OUT) {
 				row = inflater.inflate(R.layout.row, parent, false);
