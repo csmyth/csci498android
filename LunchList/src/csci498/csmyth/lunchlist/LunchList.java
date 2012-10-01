@@ -24,11 +24,6 @@ public class LunchList extends TabActivity {
 	Cursor model = null;
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
-	EditText name = null;
-	EditText address = null;
-	RadioGroup types = null;
-	EditText notes = null;
-	RestaurantHelper helper = null;
 	
 	static final int LIST_TAB = 0;
 	static final int DETAIL_TAB = 1;
@@ -37,16 +32,6 @@ public class LunchList extends TabActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_list);
-        
-        helper = new RestaurantHelper(this);
-        
-        name = (EditText)findViewById(R.id.name);
-		address = (EditText)findViewById(R.id.addr);
-		types = (RadioGroup)findViewById(R.id.types);
-		notes = (EditText)findViewById(R.id.notes);
-        
-        Button save = (Button)findViewById(R.id.save);
-        save.setOnClickListener(onSave);
         
         ListView list = (ListView)findViewById(R.id.restaurants);
         
