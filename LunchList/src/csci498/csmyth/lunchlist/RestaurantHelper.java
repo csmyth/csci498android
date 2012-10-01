@@ -40,6 +40,7 @@ public class RestaurantHelper extends SQLiteOpenHelper {
 				"SELECT_id, name, address, types, notes FROM restaurants ORDER BY name", null));
 	}
 	
+	// Note! Column ints in below getters refer to (1) name, (2) address, (3) type, and (4) notes
 	public String getName(Cursor c) {
 		return (c.getString(1));
 	}
