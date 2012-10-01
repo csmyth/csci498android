@@ -16,12 +16,16 @@ class RestaurantHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE restaurants (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, address TEXT, type TEXT, notes TEXT);");
+		db.execSQL("CREATE TABLE restaurants (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, address TEXT, type TEXT, notes TEXT);");
 	}
 	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// no-op, since will not be called until 2nd schema version exists
+	}
+	
+	public Cursor getAll() {
+		return (getReadableDatabase().rawQuery("SELECT _id, name, address, type, notes FROM restaurants ORDER BY name", null));
 	}
 	
 	public void insert(String name, String address, String type, String notes) {
@@ -33,11 +37,6 @@ class RestaurantHelper extends SQLiteOpenHelper {
 		cv.put("notes", notes);
 		
 		getWritableDatabase().insert("restaurants", "name", cv);
-	}
-
-	public Cursor getAll() {
-		return (getReadableDatabase().rawQuery(
-				"SELECT_id, name, address, types, notes FROM restaurants ORDER BY name", null));
 	}
 	
 	// Note! Column ints in below getters refer to (1) name, (2) address, (3) type, and (4) notes
