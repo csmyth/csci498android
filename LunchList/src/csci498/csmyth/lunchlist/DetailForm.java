@@ -34,6 +34,13 @@ public class DetailForm extends Activity {
         restaurantId = getIntent().getStringExtra(LunchList.ID_EXTRA);
 	}
 	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		
+		helper.close();
+	}
+		
 	private View.OnClickListener onSave = new View.OnClickListener() {
     	public void onClick(View v) {
 			String type = null;
