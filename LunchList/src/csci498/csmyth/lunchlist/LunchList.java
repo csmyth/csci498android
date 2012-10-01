@@ -22,10 +22,6 @@ public class LunchList extends ListActivity {
 	public final static String ID_EXTRA = "csci498.csmyth.lunchlist._ID";
 	
 	Cursor model = null;
-	EditText name = null;
-	EditText address = null;
-	RadioGroup types = null;
-	EditText notes = null;
 	RestaurantHelper helper = null;
 	RestaurantAdapter adapter = null;
 	
