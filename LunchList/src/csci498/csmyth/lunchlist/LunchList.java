@@ -118,6 +118,7 @@ public class LunchList extends TabActivity {
 			helper.insert(name.getText().toString(), address.getText().toString(), type, notes.getText().toString());
 		}
 	};
+
 	
 	private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener() {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -204,13 +205,13 @@ public class LunchList extends TabActivity {
 			icon = (ImageView)row.findViewById(R.id.icon);
 		}
 		
-		void populateFrom(Restaurant r) {
-			name.setText(r.getName());
-			address.setText(r.getAddress());
+		void populateFrom(Cursor c, RestaurantHelper helper) {
+			name.setText(helper.getName(c));
+			address.setText(helper.getAddress(c));
 			
-			if (r.getType().equals("@string/sit_down")) {
+			if (helper.getType(c).equals("@string/sit_down")) {
 				icon.setImageResource(R.drawable.ball_red);
-			} else if (r.getType().equals("@string/take_out")) {
+			} else if (helper.getType(c).equals("@string/take_out")) {
 				icon.setImageResource(R.drawable.ball_yellow);
 			} else {
 				icon.setImageResource(R.drawable.ball_green);
