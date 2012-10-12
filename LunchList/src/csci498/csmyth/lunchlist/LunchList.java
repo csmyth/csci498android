@@ -6,6 +6,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -34,13 +35,13 @@ public class LunchList extends ListActivity {
         setContentView(R.layout.main);
         
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        
         helper = new RestaurantHelper(this);
         model = helper.getAll(prefs.getString("sort_order", "name"));
         startManagingCursor(model);
         adapter = new RestaurantAdapter(model);
         setListAdapter(adapter);
         
+        prefs.registerOnSharedPreferenceChangeListener(prefListener);
     }
 	
 	@Override
@@ -77,6 +78,15 @@ public class LunchList extends ListActivity {
 		intent.putExtra(ID_EXTRA, String.valueOf(id));
 		startActivity(intent);
 	}
+	
+	private SharedPreferences.OnSharedPreferenceChangeListener prefListener = 
+			new SharedPreferences.OnSharedPreferenceChangeListener() {
+		public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
+			if (key.equals("sort_order")) {
+				
+			}
+		}
+	};
 	
 	class RestaurantAdapter extends CursorAdapter {
 		RestaurantAdapter(Cursor c) {
