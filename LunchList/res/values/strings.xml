@@ -13,5 +13,8 @@
     <string name="delivery">Delivery</string>
     <string name="notes_tag">Notes: </string>
     <string name="new_restaurant_prompt">Click the MENU button to add a restaurant!</string>
+    <string name="sort_title">Sort Order</string>
+    <string name="sort_summary">Choose the order the list uses</string>
+    <string name="sort_dialog_title">Choose a sort order</string>
 
 </resources>
