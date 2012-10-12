@@ -24,11 +24,6 @@ public class LunchList extends TabActivity {
 	Cursor model = null;
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
-	EditText name = null;
-	EditText address = null;
-	RadioGroup types = null;
-	EditText notes = null;
-	RestaurantHelper helper = null;
 	
 	static final int LIST_TAB = 0;
 	static final int DETAIL_TAB = 1;
