@@ -23,6 +23,7 @@ public final class R {
         public static final int toast=0x7f020009;
     }
     public static final class id {
+        public static final int add=0x7f07000e;
         public static final int addr=0x7f070004;
         public static final int address=0x7f07000d;
         public static final int delivery=0x7f070008;
@@ -32,12 +33,10 @@ public final class R {
         public static final int list=0x7f070000;
         public static final int name=0x7f070003;
         public static final int notes=0x7f070009;
-        public static final int run=0x7f07000f;
         public static final int save=0x7f07000a;
         public static final int sit_down=0x7f070007;
         public static final int take_out=0x7f070006;
         public static final int title=0x7f07000c;
-        public static final int toast=0x7f07000e;
         public static final int types=0x7f070005;
     }
     public static final class layout {
