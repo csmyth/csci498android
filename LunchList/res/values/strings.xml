@@ -12,5 +12,6 @@
     <string name="take_out">Take-Out</string>
     <string name="delivery">Delivery</string>
     <string name="notes_tag">Notes: </string>
+    <string name="new_restaurant_prompt">Click the MENU button to add a restaurant!</string>
 
 </resources>
