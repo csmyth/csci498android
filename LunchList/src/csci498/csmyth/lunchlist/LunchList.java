@@ -25,6 +25,7 @@ public class LunchList extends ListActivity {
 	Cursor model = null;
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
+	RestaurantHelper helper = null;
 	
 	static final int LIST_TAB = 0;
 	static final int DETAIL_TAB = 1;
@@ -34,32 +35,11 @@ public class LunchList extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_list);
         
-        ListView list = (ListView)findViewById(R.id.restaurants);
-        
+        helper = new RestaurantHelper(this);        
         model = helper.getAll();
         startManagingCursor(model);
         adapter = new RestaurantAdapter(model);
-        list.setAdapter(adapter);
-        
-        AutoCompleteTextView auto_complete_addr = (AutoCompleteTextView)findViewById(R.id.addr);
-        addr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
-        auto_complete_addr.setAdapter(addr_adapter);
-        
-        TabHost.TabSpec spec = getTabHost().newTabSpec("tag1");
-        
-        spec.setContent(R.id.restaurants);
-        spec.setIndicator("List", getResources().getDrawable(R.drawable.list));
-        getTabHost().addTab(spec);
-        
-        spec = getTabHost().newTabSpec("tag2");
-        spec.setContent(R.id.details);
-        spec.setIndicator("Details", getResources().getDrawable(R.drawable.restaurant));
-        getTabHost().addTab(spec);
-        
-        getTabHost().setCurrentTab(LIST_TAB);
-        
-        list.setOnItemClickListener(onListClick);
-        
+        setListAdapter(adapter);        
     }
 	
 	@Override
