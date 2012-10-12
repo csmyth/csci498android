@@ -27,8 +27,7 @@ public class LunchList extends ListActivity {
 	ArrayAdapter<String> addr_adapter = null;
 	RestaurantHelper helper = null;
 	
-	static final int LIST_TAB = 0;
-	static final int DETAIL_TAB = 1;
+	public final static String ID_EXTRA = "csci498.csmyth.lunchlist._ID";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
