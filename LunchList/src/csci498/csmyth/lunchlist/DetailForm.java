@@ -32,6 +32,10 @@ public class DetailForm extends Activity {
         save.setOnClickListener(onSave);
         
         restaurantId = getIntent().getStringExtra(LunchList.ID_EXTRA);
+        
+        if (restaurantId != null) {
+        	load();
+        }
 	}
 	
 	@Override
@@ -59,5 +63,22 @@ public class DetailForm extends Activity {
 			}
 		}
 	};
+	
+	private void load() {
+		Cursor c = helper.getById(restaurantId);
+		
+		c.moveToFirst();
+		name.setText(helper.getName(c));
+		address.setText(helper.getAddress(c));
+		notes.setText(helper.getNotes(c));
+		
+		if (helper.getType(c).equals("@string/sit_down")) {
+			types.check(R.id.sit_down);
+		} else if (helper.getType(c).equals("@string/take_out")) {
+			types.check(R.id.take_out);
+		} else {
+			types.check(R.id.delivery);
+		}
+	}
 	
 }
