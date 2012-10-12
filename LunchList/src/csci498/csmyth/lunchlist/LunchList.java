@@ -92,7 +92,7 @@ public class LunchList extends ListActivity {
 			new SharedPreferences.OnSharedPreferenceChangeListener() {
 		public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
 			if (key.equals("sort_order")) {
-				
+				initList();
 			}
 		}
 	};
