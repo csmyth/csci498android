@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -44,8 +46,14 @@ public class LunchList extends ListActivity {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		
 		helper.close();
+	}
+	
+	@Override 
+	public boolean onCreateOptionsMenu(Menu menu) {
+		new MenuInflater(this).inflate(R.menu.option, menu);
+		
+		return super.onCreateOptionsMenu(menu);
 	}
 	
 	@Override
