@@ -1,4 +1,4 @@
-<PreferencesScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <ListPreference
         android:key="sort_order"
         android:title="@string/sort_title"
@@ -6,4 +6,4 @@
         android:entries="@array/sort_names"
         android:entryValues="@array/sort_clauses"
         android:dialogTitle="@string/sort_dialog_title" />
-</PreferencesScreen>
+</PreferenceScreen>
