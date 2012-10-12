@@ -1,6 +1,7 @@
 package csci498.csmyth.lunchlist;
 
 import android.os.Bundle;
+import android.app.ListActivity;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +21,7 @@ import android.widget.RadioGroup;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-public class LunchList extends TabActivity {
+public class LunchList extends ListActivity {
 	Cursor model = null;
 	RestaurantAdapter adapter = null;
 	ArrayAdapter<String> addr_adapter = null;
