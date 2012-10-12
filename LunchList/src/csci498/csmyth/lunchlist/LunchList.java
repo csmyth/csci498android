@@ -33,16 +33,6 @@ public class LunchList extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_list);
         
-        helper = new RestaurantHelper(this);
-        
-        name = (EditText)findViewById(R.id.name);
-		address = (EditText)findViewById(R.id.addr);
-		types = (RadioGroup)findViewById(R.id.types);
-		notes = (EditText)findViewById(R.id.notes);
-        
-        Button save = (Button)findViewById(R.id.save);
-        save.setOnClickListener(onSave);
-        
         ListView list = (ListView)findViewById(R.id.restaurants);
         
         model = helper.getAll();
