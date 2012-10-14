@@ -1,0 +1,63 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+             
+	<TableLayout android:id="@+id/details"
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="3"
+       	android:shrinkColumns="3" >
+       	
+	    <TableRow>
+	        <TextView android:text="@string/name_tag" />
+            <EditText android:id="@+id/name"
+                android:inputType="textCapWords"
+                android:layout_span="3" />
+        </TableRow>
+        
+	    <TableRow>
+            <TextView android:text="@string/addr_tag" />
+            <EditText android:id="@+id/addr"
+                android:inputType="textPostalAddress"
+                android:layout_span="3" />	
+		</TableRow>
+			
+        <TableRow>
+            <TextView android:text="@string/type_tag" />
+            <RadioGroup android:id="@+id/types" >
+                
+                <RadioButton android:id="@+id/take_out" 
+                    android:text="@string/take_out" 
+                    android:checked="true" />
+                 
+                <RadioButton android:id="@+id/sit_down"
+                     android:text="@string/sit_down" />
+                 
+                <RadioButton android:id="@+id/delivery"
+                     android:text="@string/delivery" />
+            
+            </RadioGroup>
+		
+            <TextView android:text="@string/notes_tag" />
+            <LinearLayout android:orientation="vertical">
+                <EditText android:id="@+id/notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                	android:gravity="top"
+                	android:lines="2"
+                	android:scrollHorizontally="false"
+                	android:maxLines="2"
+                	android:inputType="textMultiLine" />
+	
+	        <Button android:id="@+id/save"
+    	        android:layout_width="match_parent"
+        	    android:layout_height="wrap_content"
+            	android:text="@string/save_button_title" />
+	        </LinearLayout>
+		
+		</TableRow>
+            
+	</TableLayout>
+	
+</ScrollView>
+		        
