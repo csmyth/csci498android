@@ -58,7 +58,7 @@ class RestaurantHelper extends SQLiteOpenHelper {
 		getWritableDatabase().update("restaurants", cv, "_ID=?", args);
 	}
 	
-	// Note! Column ints in below getters refer to (1) name, (2) address, (3) type, and (4) notes
+	// Note! Column ints in below getters refer to (1) name, (2) address, (3) type, (4) notes, and (5) feed
 	public String getName(Cursor c) {
 		return c.getString(1);
 	}
@@ -73,5 +73,9 @@ class RestaurantHelper extends SQLiteOpenHelper {
 	
 	public String getNotes(Cursor c) {
 		return c.getString(4);
+	}
+	
+	public String getFeed(Cursor c) {
+		return c.getString(5);
 	}
 }
