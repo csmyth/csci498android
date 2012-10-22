@@ -25,13 +25,12 @@ class RestaurantHelper extends SQLiteOpenHelper {
 	}
 	
 	public Cursor getAll(String orderBy) {
-		return (getReadableDatabase().rawQuery("SELECT _id, name, address, type, notes, feed FROM restaurants ORDER BY " + orderBy, null));
+		return getReadableDatabase().rawQuery("SELECT _id, name, address, type, notes, feed FROM restaurants ORDER BY " + orderBy, null);
 	}
 	
 	public Cursor getById(String id) {
 		String[] args = {id};
-		
-		return (getReadableDatabase().rawQuery("SELECT _id, name, address, type, notes, feed FROM restaurants WHERE _ID=?", args));
+		return getReadableDatabase().rawQuery("SELECT _id, name, address, type, notes, feed FROM restaurants WHERE _ID=?", args);
 	}
 	
 	public void insert(String name, String address, String type, String notes, String feed) {
@@ -61,18 +60,18 @@ class RestaurantHelper extends SQLiteOpenHelper {
 	
 	// Note! Column ints in below getters refer to (1) name, (2) address, (3) type, and (4) notes
 	public String getName(Cursor c) {
-		return (c.getString(1));
+		return c.getString(1);
 	}
 	
 	public String getAddress(Cursor c) {
-		return (c.getString(2));
+		return c.getString(2);
 	}
 	
 	public String getType(Cursor c) {
-		return (c.getString(3));
+		return c.getString(3);
 	}
 	
 	public String getNotes(Cursor c) {
-		return (c.getString(4));
+		return c.getString(4);
 	}
 }
