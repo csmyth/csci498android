@@ -108,9 +108,9 @@ public class DetailForm extends Activity {
 			}
 			
 			if (restaurantId == null) {
-				helper.insert(name.getText().toString(), address.getText().toString(), type, notes.getText().toString());
+				helper.insert(name.getText().toString(), address.getText().toString(), type, notes.getText().toString(), feed.getText().toString());
 			} else {
-				helper.update(restaurantId, name.getText().toString(), address.getText().toString(), type, notes.getText().toString());
+				helper.update(restaurantId, name.getText().toString(), address.getText().toString(), type, notes.getText().toString(), feed.getText().toString());
 			}
 			
 			finish();
