@@ -51,7 +51,8 @@ public final class R {
         public static final int row=0x7f030002;
     }
     public static final class menu {
-        public static final int option=0x7f080000;
+        public static final int details_option=0x7f080000;
+        public static final int option=0x7f080001;
     }
     public static final class string {
         public static final int addr_tag=0x7f060002;
