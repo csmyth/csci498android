@@ -37,15 +37,16 @@
             </RadioGroup>
 		</TableRow>
 
-        <TableRow>
-            <TextView android:text="@string/notes_tag" />
-            <EditText android:id="@+id/notes"
-                android:gravity="top"
-                android:lines="2"
-                android:scrollHorizontally="false"
-                android:maxLines="2"
-                android:inputType="textMultiLine" />
-        </TableRow>
+        <EditText android:id="@+id/notes"
+			android:gravity="top"
+            android:lines="2"
+            android:scrollHorizontally="false"
+            android:maxLines="2"
+            android:inputType="textMultiLine"
+            android:hint="@string/notes_tag" />
+        
+        <EditText android:id="@+id/feed"
+            android:hint="@string/feed_tag" />
 	
         <Button android:id="@+id/save"
             android:layout_width="match_parent"
