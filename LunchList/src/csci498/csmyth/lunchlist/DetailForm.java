@@ -13,8 +13,9 @@ public class DetailForm extends Activity {
 	EditText address = null;
 	RadioGroup types = null;
 	EditText notes = null;
-	RestaurantHelper helper = null;
+	EditText feed = null;
 	
+	RestaurantHelper helper = null;
 	String restaurantId = null;
 	
 	@Override
@@ -28,6 +29,7 @@ public class DetailForm extends Activity {
 		address = (EditText)findViewById(R.id.addr);
 		types = (RadioGroup)findViewById(R.id.types);
 		notes = (EditText)findViewById(R.id.notes);
+		feed = (EditText)findViewById(R.id.feed);
         
         Button save = (Button)findViewById(R.id.save);
         save.setOnClickListener(onSave);
