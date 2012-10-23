@@ -76,6 +76,7 @@ public class DetailForm extends Activity {
 		name.setText(helper.getName(c));
 		address.setText(helper.getAddress(c));
 		notes.setText(helper.getNotes(c));
+		feed.setText(helper.getFeed(c));
 		
 		if (helper.getType(c).equals("@string/sit_down")) {
 			types.check(R.id.sit_down);
