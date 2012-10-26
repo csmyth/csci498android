@@ -5,11 +5,25 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.AsyncTask;
 import android.util.Log;
 
 public class FeedActivity extends ListActivity {
+	public static final String EXCP_TITLE = "Exception!";
+	public static final String POS_BUTTON_TXT = "OK";
+	
+	private void goBlooey(Throwable thrwbl) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		
+		builder
+			.setTitle(EXCP_TITLE)
+			.setMessage(thrwbl.toString())
+			.setPositiveButton(POS_BUTTON_TXT, null)
+			.show();
+	}
+	
 	private static class FeedTask extends AsyncTask<String, Void, Void> {
 		private Exception excp = null;
 		private FeedActivity activity = null;
