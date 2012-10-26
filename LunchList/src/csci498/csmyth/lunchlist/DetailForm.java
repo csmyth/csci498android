@@ -25,6 +25,8 @@ public class DetailForm extends Activity {
 	RestaurantHelper helper = null;
 	String restaurantId = null;
 	
+	private static final String UNAVAIL = "Sorry, the Internet is not available";
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -91,7 +93,7 @@ public class DetailForm extends Activity {
 				startActivity(intent);
 			} else {
 				Toast
-					.makeText(this, "Sorry, the Internet is not available", Toast.LENGTH_LONG)
+					.makeText(this, UNAVAIL, Toast.LENGTH_LONG)
 					.show();
 			}
 			return true;
