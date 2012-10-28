@@ -4,8 +4,10 @@ import android.app.IntentService;
 import android.content.Intent;
 
 public class FeedService extends IntentService {
+	public static final String FEED_SERVICE_NAME = "FeedService";
+	
 	public FeedService() {
-		super("FeedService");
+		super(FEED_SERVICE_NAME);
 	}
 	
 	@Override
