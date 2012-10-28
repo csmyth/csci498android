@@ -44,9 +44,11 @@
             android:maxLines="2"
             android:inputType="textMultiLine"
             android:hint="@string/notes_tag" />
-        
-        <EditText android:id="@+id/feed"
-            android:hint="@string/feed_tag" />
+        
+        <EditText
+            android:id="@+id/feed"
+            android:hint="@string/feed_tag"
+            android:inputType="textWebEditText" />
 	
         <Button android:id="@+id/save"
             android:layout_width="match_parent"
