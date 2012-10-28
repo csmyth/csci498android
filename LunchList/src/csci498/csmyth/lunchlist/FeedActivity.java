@@ -18,6 +18,7 @@ import android.widget.TextView;
 public class FeedActivity extends ListActivity {
 	public static final String EXCP_TITLE = "Exception!";
 	public static final String POS_BUTTON_TXT = "OK";
+	public static final String FEED_URL = "csci498.csmyth.lunchlist.FEED_URL";
 	
 	private InstanceState state = null;
 	
