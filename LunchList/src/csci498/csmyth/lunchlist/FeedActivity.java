@@ -41,6 +41,15 @@ public class FeedActivity extends ListActivity {
 		}
 	}
 	
+	@Override
+	public Object onRetainNonConfigurationInstance() {
+		if (state.task != null) {
+			state.task.detach();
+		}
+		
+		return state;
+	}
+	
 	private void goBlooey(Throwable thrwbl) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		
