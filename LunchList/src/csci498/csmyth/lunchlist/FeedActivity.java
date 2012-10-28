@@ -7,6 +7,7 @@ import org.mcsoxford.rss.RSSReader;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,26 @@ public class FeedActivity extends ListActivity {
 	public static final String POS_BUTTON_TXT = "OK";
 	
 	private InstanceState state = null;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		state = (InstanceState)getLastNonConfigurationInstance();
+		
+		if (state == null) {
+			state = new InstanceState();
+			state.task = new FeedTask(this);
+			state.task.execute(getIntent().getStringExtra(FEED_URL));
+		} else {
+			if (state.task != null) {
+				state.task.attach(this);
+			}
+			if (state.feed != null) {
+				setFeed(state.feed);
+			}
+		}
+	}
 	
 	private void goBlooey(Throwable thrwbl) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
