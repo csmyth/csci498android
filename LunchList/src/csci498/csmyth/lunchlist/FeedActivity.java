@@ -18,6 +18,8 @@ public class FeedActivity extends ListActivity {
 	public static final String EXCP_TITLE = "Exception!";
 	public static final String POS_BUTTON_TXT = "OK";
 	
+	private InstanceState state = null;
+	
 	private void goBlooey(Throwable thrwbl) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		
@@ -26,6 +28,11 @@ public class FeedActivity extends ListActivity {
 			.setMessage(thrwbl.toString())
 			.setPositiveButton(POS_BUTTON_TXT, null)
 			.show();
+	}
+	
+	private static class InstanceState {
+		RSSFeed feed = null;
+		FeedTask task = null;
 	}
 	
 	private static class FeedTask extends AsyncTask<String, Void, Void> {
