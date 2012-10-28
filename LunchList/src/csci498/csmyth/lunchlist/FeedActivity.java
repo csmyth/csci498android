@@ -71,7 +71,7 @@ public class FeedActivity extends ListActivity {
 		FeedTask task = null;
 	}
 	
-	private static class FeedTask extends AsyncTask<String, Void, Void> {
+	private static class FeedTask extends AsyncTask<String, Void, RSSFeed> {
 		private RSSReader reader = new RSSReader();
 		private Exception excp = null;
 		private FeedActivity activity = null;
