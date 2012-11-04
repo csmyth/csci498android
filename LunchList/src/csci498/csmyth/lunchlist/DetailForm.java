@@ -124,32 +124,30 @@ public class DetailForm extends Activity {
 		c.close();
 	}
 		
-	private View.OnClickListener onSave = new View.OnClickListener() {
-    	public void onClick(View v) {
+	private void save() {
+		if (name.getText().toString().length() > 0) {
 			String type = null;
-			
+		
 			switch (types.getCheckedRadioButtonId()) {
-			case R.id.sit_down:
-				type = "@string/sit_down";
-				break;
-				
-			case R.id.take_out:
-				type = "@string/take_out";
-				break;
-				
-			case R.id.delivery:
-				type = "@string/delivery";
-				break;
+				case R.id.sit_down:
+					type = "@string/sit_down";
+					break;
+					
+				case R.id.take_out:
+					type = "@string/take_out";
+					break;
+					
+				default:
+					type = "@string/delivery";
+					break;
 			}
-			
+		
 			if (restaurantId == null) {
 				helper.insert(name.getText().toString(), address.getText().toString(), type, notes.getText().toString(), feed.getText().toString());
 			} else {
 				helper.update(restaurantId, name.getText().toString(), address.getText().toString(), type, notes.getText().toString(), feed.getText().toString());
 			}
-			
-			finish();
 		}
-	};
+	}
 	
 }
