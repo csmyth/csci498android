@@ -3,6 +3,7 @@ package csci498.csmyth.lunchlist;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class DetailForm extends Activity {
 	TextView location = null;
 	
 	RestaurantHelper helper = null;
+	LocationManager locMgr = null;
 	String restaurantId = null;
 	
 	private static final String UNAVAIL = "Sorry, the Internet is not available";
@@ -32,8 +34,6 @@ public class DetailForm extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detail_form);
-		
-		helper = new RestaurantHelper(this);
         
         name = (EditText)findViewById(R.id.name);
 		address = (EditText)findViewById(R.id.addr);
@@ -42,6 +42,8 @@ public class DetailForm extends Activity {
 		feed = (EditText)findViewById(R.id.feed);
 		location = (TextView)findViewById(R.id.location);
         
+		helper = new RestaurantHelper(this);
+		locMgr = (LocationManager)getSystemService(LOCATION_SERVICE);
         restaurantId = getIntent().getStringExtra(LunchList.ID_EXTRA);
         
         if (restaurantId != null) {
