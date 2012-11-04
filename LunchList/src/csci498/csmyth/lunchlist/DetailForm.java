@@ -29,6 +29,8 @@ public class DetailForm extends Activity {
 	RestaurantHelper helper = null;
 	LocationManager locMgr = null;
 	String restaurantId = null;
+	double latitude = 0.0d;
+	double longitude = 0.0d;
 	
 	private static final String UNAVAIL = "Sorry, the Internet is not available";
 	private static final String LOCATION_SAVE_TEXT = "Location saved";
@@ -167,6 +169,8 @@ public class DetailForm extends Activity {
 		address.setText(helper.getAddress(c));
 		notes.setText(helper.getNotes(c));
 		feed.setText(helper.getFeed(c));
+		latitude = helper.getLatitude(c);
+		longitude = helper.getLongitude(c);
 		location.setText(String.valueOf(helper.getLocation(c)));
 		
 		if (helper.getType(c).equals("@string/sit_down")) {
