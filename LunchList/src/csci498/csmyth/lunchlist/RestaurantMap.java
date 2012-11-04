@@ -45,7 +45,7 @@ public class RestaurantMap extends MapActivity {
 	private class RestaurantOverlay extends ItemizedOverlay<OverlayItem> {
 		private OverlayItem item = null;
 		
-		private final Integer SIZE_CONSTANT = 1;
+		private final Integer NUM_POINTS_TO_DRAW = 1;
 		
 		public RestaurantOverlay(Drawable marker, GeoPoint point, String name) {
 			super(marker);
@@ -61,7 +61,7 @@ public class RestaurantMap extends MapActivity {
 		
 		@Override
 		public int size() {
-			return SIZE_CONSTANT;
+			return NUM_POINTS_TO_DRAW;
 		}
 	}
 
