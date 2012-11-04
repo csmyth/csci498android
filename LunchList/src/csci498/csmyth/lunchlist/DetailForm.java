@@ -54,6 +54,12 @@ public class DetailForm extends Activity {
 	}
 	
 	@Override
+	public void onPause() {
+		save();
+		super.onPause();
+	}
+	
+	@Override
 	public void onSaveInstanceState(Bundle state) {
 		super.onSaveInstanceState(state);
 		
