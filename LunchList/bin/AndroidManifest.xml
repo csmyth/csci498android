@@ -16,6 +16,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <uses-library android:required="true" android:name="com.google.android.maps"/>
         <activity
             android:name=".LunchList"
             android:label="@string/title_main" >
@@ -29,7 +30,6 @@
         <activity android:name=".EditPreferences"></activity>
         <activity android:name=".FeedActivity"></activity>
         <service android:name=".FeedService"></service>
-        <uses-library android:required="true" android:name="com.google.android.maps"/>
         <activity android:name=".RestaurantMap"></activity>
     </application>
 

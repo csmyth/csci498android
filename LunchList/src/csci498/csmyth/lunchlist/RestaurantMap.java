@@ -3,7 +3,6 @@ package csci498.csmyth.lunchlist;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapActivity;
