@@ -8,6 +8,8 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,15 +73,10 @@ public class FeedActivity extends ListActivity {
 		FeedTask task = null;
 	}
 	
-	private static class FeedTask extends AsyncTask<String, Void, RSSFeed> {
-		private RSSReader reader = new RSSReader();
-		private Exception excp = null;
+	private static class FeedHandler extends Handler {
 		private FeedActivity activity = null;
 		
-		private static final String APP_NAME = "LunchList";
-		private static final String PARSE_FEED_EXCEPTION = "Exception parsing feed";
-		
-		FeedTask(FeedActivity activity) {
+		FeedHandler(FeedActivity activity) {
 			attach(activity);
 		}
 		
@@ -92,24 +89,11 @@ public class FeedActivity extends ListActivity {
 		}
 		
 		@Override
-		public RSSFeed doInBackground(String... urls) {
-			RSSFeed result = null;
-			
-			try {
-				result = reader.load(urls[0]);
-			} catch (Exception excp) {
-				this.excp = excp;
-			}
-			return result;
-		}
-		
-		@Override
-		public void onPostExecute(RSSFeed feed) {
-			if (excp == null) {
-				activity.setFeed(feed);
+		public void handleMessage(Message msg) {
+			if (msg.arg1 == RESULT_OK) {
+				activity.setFeed((RSSFeed)msg.obj);
 			} else {
-				Log.e(APP_NAME, PARSE_FEED_EXCEPTION, excp);
-				activity.goBlooey(excp);
+				activity.goBlooey((Exception)msg.obj);
 			}
 		}
 	}
