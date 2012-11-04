@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DetailForm extends Activity {
@@ -20,6 +21,7 @@ public class DetailForm extends Activity {
 	RadioGroup types = null;
 	EditText notes = null;
 	EditText feed = null;
+	TextView location = null;
 	
 	RestaurantHelper helper = null;
 	String restaurantId = null;
