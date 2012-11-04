@@ -17,5 +17,7 @@
     <string name="sort_summary">Choose the order the list uses</string>
     <string name="sort_dialog_title">Choose a sort order</string>
     <string name="feed_tag">Feed URL</string>
+    <string name="location_tag">Location: </string>
+    <string name="location_not_set">(not set)</string>
 
 </resources>
