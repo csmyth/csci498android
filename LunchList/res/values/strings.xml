@@ -24,5 +24,8 @@
     <string name="time_summary">Set your desired time for the lunch alarm</string>
     <string name="alarm_title">Sound a Lunch Alarm</string>
     <string name="alarm_summary">Check if you want to know when it is time for lunch</string>
+    <string name="alarm_key">alarm</string>
+    <string name="alarm_time_key">alarm_time</string>
+    <string name="time_notice">It\'s time for lunch!</string>
 
 </resources>

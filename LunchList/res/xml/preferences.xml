@@ -7,13 +7,13 @@
         android:entryValues="@array/sort_clauses"
         android:dialogTitle="@string/sort_dialog_title" />
     <CheckBoxPreference 
-        android:key="alarm"
+        android:key="@string/alarm_key"
         android:title="@string/alarm_title"
         android:summary="@string/alarm_summary" />
     <csci498.csmyth.lunchlist.TimePreference
-        android:key="alarm_time"
+        android:key="@string/alarm_time_key"
         android:title="@string/time_title"
         android:defaultValue="@string/default_time"
         android:summary="@string/time_summary"
-        android:dependency="alarm" />
+        android:dependency="@string/alarm_key" />
 </PreferenceScreen>
