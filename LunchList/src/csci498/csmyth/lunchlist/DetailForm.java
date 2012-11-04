@@ -40,6 +40,7 @@ public class DetailForm extends Activity {
 		types = (RadioGroup)findViewById(R.id.types);
 		notes = (EditText)findViewById(R.id.notes);
 		feed = (EditText)findViewById(R.id.feed);
+		location = (TextView)findViewById(R.id.location);
         
         restaurantId = getIntent().getStringExtra(LunchList.ID_EXTRA);
         
