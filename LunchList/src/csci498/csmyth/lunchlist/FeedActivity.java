@@ -70,7 +70,7 @@ public class FeedActivity extends ListActivity {
 	
 	private static class InstanceState {
 		RSSFeed feed = null;
-		FeedTask task = null;
+		FeedHandler handler = null;
 	}
 	
 	private static class FeedHandler extends Handler {
