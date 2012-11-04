@@ -1,10 +1,13 @@
 package csci498.csmyth.lunchlist;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.google.android.maps.GeoPoint;
+import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
+import com.google.android.maps.OverlayItem;
 
 public class RestaurantMap extends MapActivity {
 	private MapView map = null;
@@ -37,6 +40,29 @@ public class RestaurantMap extends MapActivity {
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;
+	}
+	
+	private class RestaurantOverlay extends ItemizedOverlay<OverlayItem> {
+		private OverlayItem item = null;
+		
+		private final Integer SIZE_CONSTANT = 1;
+		
+		public RestaurantOverlay(Drawable marker, GeoPoint point, String name) {
+			super(marker);
+			boundCenterBottom(marker);
+			item = new OverlayItem(point, name, name);
+			populate();
+		}
+		
+		@Override
+		protected OverlayItem createItem(int i) {
+			return item;
+		}
+		
+		@Override
+		public int size() {
+			return SIZE_CONSTANT;
+		}
 	}
 
 }
