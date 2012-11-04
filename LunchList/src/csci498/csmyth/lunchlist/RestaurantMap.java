@@ -1,9 +1,14 @@
 package csci498.csmyth.lunchlist;
 
 import android.os.Bundle;
+
+import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapView;
 
 public class RestaurantMap extends MapActivity {
+	private MapView map = null;
+	private GeoPoint status = null;
 	double lat;
 	double lon;
 	
@@ -11,6 +16,8 @@ public class RestaurantMap extends MapActivity {
 	public static final String EXTRA_LONGITUDE = "csci498.csmyth.lunchlist.EXTRA_LONGITUDE";
 	public static final String EXTRA_NAME = "csci498.csmyth.lunchlist.EXTRA_NAME";
 	public static final Double LAT_LON_DEFAULT = 0.0;
+	public static final Integer DEFAULT_ZOOM = 17;
+	public static final Double MICRODEGREE_CONVERSION_FACTOR = 1000000.0;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -19,7 +26,12 @@ public class RestaurantMap extends MapActivity {
 		
 		lat = getIntent().getDoubleExtra(EXTRA_LATITUDE, LAT_LON_DEFAULT);
 		lon = getIntent().getDoubleExtra(EXTRA_LONGITUDE, LAT_LON_DEFAULT);
+		map = (MapView)findViewById(R.id.map);
 		
+		map.getController().setZoom(DEFAULT_ZOOM);
+		status = new GeoPoint((int)(lat * MICRODEGREE_CONVERSION_FACTOR), (int)(lon * MICRODEGREE_CONVERSION_FACTOR));
+		map.getController().setCenter(status);
+		map.setBuiltInZoomControls(true);
 	}
 	
 	@Override
