@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -39,9 +38,6 @@ public class DetailForm extends Activity {
 		types = (RadioGroup)findViewById(R.id.types);
 		notes = (EditText)findViewById(R.id.notes);
 		feed = (EditText)findViewById(R.id.feed);
-        
-        Button save = (Button)findViewById(R.id.save);
-        save.setOnClickListener(onSave);
         
         restaurantId = getIntent().getStringExtra(LunchList.ID_EXTRA);
         
