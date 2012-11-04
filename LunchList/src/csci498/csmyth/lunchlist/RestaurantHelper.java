@@ -102,4 +102,9 @@ class RestaurantHelper extends SQLiteOpenHelper {
 	public double getLongitude(Cursor c) {
 		return c.getDouble(7);
 	}
+	
+	// Merges data from getLatitude and getLongitude for concise calls when both are needed
+	public String getLocation(Cursor c) {
+		return c.getDouble(6) + ", " + c.getDouble(7);
+	}
 }

@@ -3,6 +3,8 @@ package csci498.csmyth.lunchlist;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -29,6 +31,7 @@ public class DetailForm extends Activity {
 	String restaurantId = null;
 	
 	private static final String UNAVAIL = "Sorry, the Internet is not available";
+	private static final String LOCATION_SAVE_TEXT = "Location saved";
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -110,12 +113,36 @@ public class DetailForm extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	private boolean isNetworkAvailable() {
 		ConnectivityManager cm = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
 		NetworkInfo info = cm.getActiveNetworkInfo();
 		return (info != null);
 	}
+	
+	LocationListener onLocationChange = new LocationListener() {
+		public void onLocationChanged(Location fix) {
+			helper.updateLocation(restaurantId, fix.getLatitude(), fix.getLongitude());
+			location.setText(String.valueOf(fix.getLatitude()) + ", " + String.valueOf(fix.getLongitude()));
+			locMgr.removeUpdates(onLocationChange);
+			
+			Toast
+				.makeText(DetailForm.this, LOCATION_SAVE_TEXT, Toast.LENGTH_LONG)
+				.show();
+		}
+		
+		public void onProviderDisabled(String provider) {
+			// required for interface, not used
+		}
+		
+		public void onProviderEnabled(String provider) {
+			// required for interface, not used
+		}
+		
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+			// required for interface, not used
+		}
+	};
 	
 	private void load() {
 		Cursor c = helper.getById(restaurantId);
@@ -126,7 +153,7 @@ public class DetailForm extends Activity {
 		address.setText(helper.getAddress(c));
 		notes.setText(helper.getNotes(c));
 		feed.setText(helper.getFeed(c));
-		location.setText(String.valueOf(helper.getLatitude(c)) + ", " + String.valueOf(helper.getLongitude(c)));
+		location.setText(String.valueOf(helper.getLocation(c)));
 		
 		if (helper.getType(c).equals("@string/sit_down")) {
 			types.check(R.id.sit_down);
