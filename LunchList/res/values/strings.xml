@@ -19,5 +19,10 @@
     <string name="feed_tag">Feed URL</string>
     <string name="location_tag">Location: </string>
     <string name="location_not_set">(not set)</string>
+    <string name="time_title">Lunch Alarm Time</string>
+    <string name="default_time">12:00</string>
+    <string name="time_summary">Set your desired time for the lunch alarm</string>
+    <string name="alarm_title">Sound a Lunch Alarm</string>
+    <string name="alarm_summary">Check if you want to know when it is time for lunch</string>
 
 </resources>

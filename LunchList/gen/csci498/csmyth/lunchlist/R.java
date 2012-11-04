@@ -61,7 +61,10 @@ public final class R {
     }
     public static final class string {
         public static final int addr_tag=0x7f060002;
+        public static final int alarm_summary=0x7f060017;
+        public static final int alarm_title=0x7f060016;
         public static final int app_name=0x7f060000;
+        public static final int default_time=0x7f060014;
         public static final int delivery=0x7f06000a;
         public static final int feed_tag=0x7f060010;
         public static final int hello_world=0x7f060001;
@@ -77,6 +80,8 @@ public final class R {
         public static final int sort_summary=0x7f06000e;
         public static final int sort_title=0x7f06000d;
         public static final int take_out=0x7f060009;
+        public static final int time_summary=0x7f060015;
+        public static final int time_title=0x7f060013;
         public static final int title_main=0x7f060004;
         public static final int type_tag=0x7f060007;
     }
