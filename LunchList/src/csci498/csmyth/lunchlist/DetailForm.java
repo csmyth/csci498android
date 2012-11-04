@@ -104,6 +104,9 @@ public class DetailForm extends Activity {
 					.show();
 			}
 			return true;
+		} else if (item.getItemId() == R.id.location) {
+			locMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, onLocationChange);
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
