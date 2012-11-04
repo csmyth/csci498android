@@ -21,12 +21,13 @@ public final class R {
         public static final int ic_action_search=0x7f020003;
         public static final int ic_launcher=0x7f020004;
         public static final int ic_menu_add=0x7f020005;
-        public static final int ic_menu_friendslist=0x7f020006;
-        public static final int ic_menu_preferences=0x7f020007;
-        public static final int list=0x7f020008;
-        public static final int restaurant=0x7f020009;
-        public static final int run=0x7f02000a;
-        public static final int toast=0x7f02000b;
+        public static final int ic_menu_compass=0x7f020006;
+        public static final int ic_menu_friendslist=0x7f020007;
+        public static final int ic_menu_preferences=0x7f020008;
+        public static final int list=0x7f020009;
+        public static final int restaurant=0x7f02000a;
+        public static final int run=0x7f02000b;
+        public static final int toast=0x7f02000c;
     }
     public static final class id {
         public static final int add=0x7f09000d;
