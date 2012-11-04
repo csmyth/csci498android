@@ -124,6 +124,11 @@ public class DetailForm extends Activity {
 			return true;
 		} else if (item.getItemId() == R.id.map) {
 			Intent intent = new Intent(this, RestaurantMap.class);
+			
+			intent.putExtra(RestaurantMap.EXTRA_LATITUDE, latitude);
+			intent.putExtra(RestaurantMap.EXTRA_LONGITUDE, longitude);
+			intent.putExtra(RestaurantMap.EXTRA_NAME, name.getText().toString());
+			
 			startActivity(intent);
 			return true;
 		}
