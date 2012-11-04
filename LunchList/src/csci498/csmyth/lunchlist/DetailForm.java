@@ -121,6 +121,7 @@ public class DetailForm extends Activity {
 		address.setText(helper.getAddress(c));
 		notes.setText(helper.getNotes(c));
 		feed.setText(helper.getFeed(c));
+		location.setText(String.valueOf(helper.getLatitude(c)) + ", " + String.valueOf(helper.getLongitude(c)));
 		
 		if (helper.getType(c).equals("@string/sit_down")) {
 			types.check(R.id.sit_down);
