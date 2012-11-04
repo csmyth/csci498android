@@ -45,17 +45,30 @@
                 	android:scrollHorizontally="false"
                 	android:maxLines="2"
                 	android:inputType="textMultiLine"
-                	android:hint="@string/feed_tag" />
+                	android:hint="@string/notes_tag" />
                 
                 <EditText android:id="@+id/feed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/notes_tag" />
-	
-				<Button android:id="@+id/save"
-	    	        android:layout_width="match_parent"
-    	    	    android:layout_height="wrap_content"
-        	    	android:text="@string/save_button_title" />
+                    android:hint="@string/feed_tag" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/location_tag" />
+
+                    <TextView android:id="@+id/location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/location_not_set" />
+
+                </LinearLayout>
+
 	        </LinearLayout>
 		
 		</TableRow>
