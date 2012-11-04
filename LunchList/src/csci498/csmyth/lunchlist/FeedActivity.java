@@ -46,8 +46,8 @@ public class FeedActivity extends ListActivity {
 	
 	@Override
 	public Object onRetainNonConfigurationInstance() {
-		if (state.task != null) {
-			state.task.detach();
+		if (state.handler != null) {
+			state.handler.detach();
 		}
 		
 		return state;
