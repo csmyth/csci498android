@@ -29,7 +29,8 @@ public final class R {
         public static final int list=0x7f02000b;
         public static final int restaurant=0x7f02000c;
         public static final int run=0x7f02000d;
-        public static final int toast=0x7f02000e;
+        public static final int stat_notify_chat=0x7f02000e;
+        public static final int toast=0x7f02000f;
     }
     public static final class id {
         public static final int add=0x7f09000e;
@@ -84,6 +85,7 @@ public final class R {
         public static final int subtle_alarm_title=0x7f060019;
         public static final int take_out=0x7f060009;
         public static final int time_notice=0x7f060018;
+        public static final int time_notice_extended=0x7f06001b;
         public static final int time_summary=0x7f060015;
         public static final int time_title=0x7f060013;
         public static final int title_main=0x7f060004;

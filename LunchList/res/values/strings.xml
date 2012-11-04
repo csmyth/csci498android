@@ -27,5 +27,6 @@
     <string name="time_notice">It\'s time for lunch!</string>
     <string name="subtle_alarm_title">Use a Notification</string>
     <string name="subtle_alarm_summary">Check if you want a status bar icon at lunchtime, or uncheck for a full-screen notice</string>
+    <string name="time_notice_extended">It\'s time for lunch! Aren\'t you hungry?</string>
 
 </resources>
