@@ -35,6 +35,12 @@ public class RestaurantMap extends MapActivity {
 		status = new GeoPoint((int)(lat * MICRODEGREE_CONVERSION_FACTOR), (int)(lon * MICRODEGREE_CONVERSION_FACTOR));
 		map.getController().setCenter(status);
 		map.setBuiltInZoomControls(true);
+		
+		Drawable marker = getResources().getDrawable(R.drawable.ic_maps_indicator_current_position);
+		marker.setBounds(0, 0, marker.getIntrinsicWidth(), marker.getIntrinsicHeight());
+		map
+			.getOverlays()
+			.add(new RestaurantOverlay(marker, status, getIntent().getStringExtra(EXTRA_NAME)));
 	}
 	
 	@Override
