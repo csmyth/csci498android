@@ -17,6 +17,7 @@ public class FeedService extends IntentService {
 	
 	public static final String FEED_SERVICE_NAME = "FeedService";
 	public static final String EXTRA_URL = "csci498.csmyth.lunchlist.EXTRA_URL";
+	public static final String EXTRA_MESSENGER = "csci498.csmyth.lunchlist.EXTRA_MESSENGER";
 	
 	public FeedService() {
 		super(FEED_SERVICE_NAME);
