@@ -12,9 +12,8 @@ import android.preference.PreferenceManager;
 
 public class OnBootReceiver extends BroadcastReceiver {
 	@Override
-	public void onReceive(Context arg0, Intent arg1) {
-		// TODO Auto-generated method stub
-
+	public void onReceive(Context ctxt, Intent intent) {
+		setAlarm(ctxt);
 	}
 	
 	public static void setAlarm(Context ctxt) {
