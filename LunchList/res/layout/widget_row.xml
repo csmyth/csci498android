@@ -18,4 +18,4 @@
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:gravity="center_vertical"
     android:paddingLeft="6dip"
-    android:minHeight="?android:attr/listPreferedItemHeight" />
+    android:minHeight="?android:attr/listPreferredItemHeight" />
