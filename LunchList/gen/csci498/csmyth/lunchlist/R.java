@@ -73,6 +73,7 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int default_time=0x7f060014;
         public static final int delivery=0x7f06000a;
+        public static final int empty_db=0x7f06001c;
         public static final int feed_tag=0x7f060010;
         public static final int hello_world=0x7f060001;
         public static final int location_not_set=0x7f060012;

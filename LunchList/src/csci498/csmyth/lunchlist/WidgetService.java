@@ -42,7 +42,7 @@ public class WidgetService extends IntentService {
 				updateViews.setOnClickPendingIntent(R.id.name, pi);
 				c.close();
 			} else {
-			updateViews.setTextViewText(R.id.title, this.getString(R.string.empty));
+			updateViews.setTextViewText(R.id.title, this.getString(R.string.empty_db));
 			}
 		} finally {
 			helper.close();
