@@ -62,6 +62,7 @@ public final class R {
         public static final int map=0x7f030003;
         public static final int row=0x7f030004;
         public static final int widget=0x7f030005;
+        public static final int widget_row=0x7f030006;
     }
     public static final class menu {
         public static final int details_option=0x7f080000;
