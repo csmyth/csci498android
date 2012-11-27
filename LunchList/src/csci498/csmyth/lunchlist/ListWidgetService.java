@@ -1,5 +1,6 @@
 package csci498.csmyth.lunchlist;
 
+import android.content.Intent;
 import android.widget.RemoteViewsService;
 
 public class ListWidgetService extends RemoteViewsService {
