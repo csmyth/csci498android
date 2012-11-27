@@ -27,14 +27,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailForm"></activity>
-        <activity android:name=".EditPreferences"></activity>
-        <activity android:name=".FeedActivity"></activity>
-        <activity android:name=".RestaurantMap"></activity>
-        <activity android:name=".AlarmActivity"></activity>
+        <activity android:name=".DetailForm" />
+        <activity android:name=".EditPreferences" />
+        <activity android:name=".FeedActivity" />
+        <activity android:name=".RestaurantMap" />
+        <activity android:name=".AlarmActivity" />
         
-        <service android:name=".FeedService"></service>
-        <service android:name=".WidgetService"></service>
+        <service android:name=".FeedService" />
+        <service android:name=".WidgetService" />
+        <service android:name=".ListWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS" />
         
         <receiver android:name=".OnBootReceiver" android:enabled="false">
             <intent-filter>
