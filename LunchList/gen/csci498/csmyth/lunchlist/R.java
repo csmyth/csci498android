@@ -37,23 +37,24 @@ public final class R {
         public static final int widget_frame=0x7f020013;
     }
     public static final class id {
-        public static final int add=0x7f090010;
+        public static final int add=0x7f090011;
         public static final int addr=0x7f090002;
-        public static final int address=0x7f09000d;
+        public static final int address=0x7f09000e;
         public static final int delivery=0x7f090006;
         public static final int details=0x7f090000;
         public static final int feed=0x7f090009;
-        public static final int icon=0x7f09000b;
+        public static final int icon=0x7f09000c;
         public static final int location=0x7f090007;
-        public static final int map=0x7f09000a;
+        public static final int lunch=0x7f09000a;
+        public static final int map=0x7f09000b;
         public static final int name=0x7f090001;
-        public static final int next=0x7f09000e;
+        public static final int next=0x7f09000f;
         public static final int notes=0x7f090008;
-        public static final int prefs=0x7f090011;
-        public static final int restaurants=0x7f09000f;
+        public static final int prefs=0x7f090012;
+        public static final int restaurants=0x7f090010;
         public static final int sit_down=0x7f090005;
         public static final int take_out=0x7f090004;
-        public static final int title=0x7f09000c;
+        public static final int title=0x7f09000d;
         public static final int types=0x7f090003;
     }
     public static final class layout {
