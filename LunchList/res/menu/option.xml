@@ -1,5 +1,9 @@
-
-    <menu xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:id="@+id/add" android:icon="@drawable/ic_menu_add" android:title="Add"></item>
-        <item android:id="@+id/prefs" android:title="Settings" android:icon="@drawable/ic_menu_preferences"></item>
-    </menu>
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/add" 
+		android:icon="@drawable/ic_menu_add" 
+		android:title="@string/add_title"
+		android:showAsAction="ifRoom|withText" />
+        <item android:id="@+id/prefs" 
+		android:title="@string/settings_title" 				android:icon="@drawable/ic_menu_preferences" />
+</menu>

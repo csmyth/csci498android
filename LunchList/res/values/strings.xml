@@ -29,5 +29,7 @@
     <string name="subtle_alarm_summary">Check if you want a status bar icon at lunchtime, or uncheck for a full-screen notice</string>
     <string name="time_notice_extended">It\'s time for lunch! Aren\'t you hungry?</string>
     <string name="empty_db">No restaurants!</string>
+    <string name="add_title">Add</string>
+    <string name="settings_title">Settings</string>
 
 </resources>
