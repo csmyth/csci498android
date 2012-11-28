@@ -28,6 +28,7 @@ public class LunchFragment extends ListFragment {
 	RestaurantHelper helper = null;
 	RestaurantAdapter adapter = null;
 	SharedPreferences prefs = null;
+	OnRestaurantListener listener = null;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,10 +71,13 @@ public class LunchFragment extends ListFragment {
 	
 	@Override
 	public void onListItemClick(ListView list, View view, int position, long id) {
-		Intent intent = new Intent(getActivity(), DetailForm.class);
-		
-		intent.putExtra(ID_EXTRA, String.valueOf(id));
-		startActivity(intent);
+		if (listener != null) {
+			listener.onRestaurantSelected(id);
+		}
+	}
+	
+	public void setOnRestaurantListener(OnRestaurantListener listener) {
+		this.listener = listener;
 	}
 	
 	private void initList() {
@@ -94,6 +98,10 @@ public class LunchFragment extends ListFragment {
 		}
 	};
 	
+	public interface OnRestaurantListener {
+		void onRestaurantSelected(long id);
+	}
+
 	class RestaurantAdapter extends CursorAdapter {
 		RestaurantAdapter(Cursor c) {
 			super(getActivity(), c);
