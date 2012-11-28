@@ -38,7 +38,6 @@ public class LunchFragment extends ListFragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-        
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         helper = new RestaurantHelper(getActivity());
         
@@ -66,7 +65,6 @@ public class LunchFragment extends ListFragment {
 			startActivity(new Intent(getActivity(), EditPreferences.class));
 			return true;
 		}
-		
 		return super.onOptionsItemSelected(item);
 	}
 	
@@ -104,19 +102,17 @@ public class LunchFragment extends ListFragment {
 		@Override
 		public void bindView(View row, Context ctxt, Cursor c) {
 			RestaurantHolder holder = (RestaurantHolder)row.getTag();
-			
 			holder.populateFrom(c, helper);
 		}
 		
 		@Override
 		public View newView(Context ctxt, Cursor c, ViewGroup parent) {
-			LayoutInflater inflater = getLayoutInflater();
+			LayoutInflater inflater = getActivity().getLayoutInflater();
 			View row = inflater.inflate(R.layout.row, parent, false);
 			RestaurantHolder holder = new RestaurantHolder(row);
-			
 			row.setTag(holder);
 		
-			return (row);
+			return row;
 		}
 	}
 	
