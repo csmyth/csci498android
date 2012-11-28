@@ -82,12 +82,9 @@ public class LunchFragment extends ListFragment {
 	
 	private void initList() {
 		if (model != null) {
-			stopManagingCursor(model);
 			model.close();
 		}
-		
 		model = helper.getAll(prefs.getString("sort_order", "name"));
-        startManagingCursor(model);
         adapter = new RestaurantAdapter(model);
         setListAdapter(adapter);
 	}
