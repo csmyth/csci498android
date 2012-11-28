@@ -47,10 +47,9 @@ public class LunchFragment extends ListFragment {
     }
 	
 	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		
+	public void onPause() {
 		helper.close();
+		super.onPause();
 	}
 	
 	@Override
