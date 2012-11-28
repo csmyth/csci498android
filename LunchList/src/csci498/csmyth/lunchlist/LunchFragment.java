@@ -53,10 +53,8 @@ public class LunchFragment extends ListFragment {
 	}
 	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		new MenuInflater(getActivity()).inflate(R.menu.option, menu);
-		
-		return(super.onCreateOptionsMenu(menu));
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.option, menu);
 	}
 	
 	@Override
