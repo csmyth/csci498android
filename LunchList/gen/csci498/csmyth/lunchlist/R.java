@@ -70,6 +70,7 @@ public final class R {
         public static final int option=0x7f080001;
     }
     public static final class string {
+        public static final int add_title=0x7f06001d;
         public static final int addr_tag=0x7f060002;
         public static final int alarm_summary=0x7f060017;
         public static final int alarm_title=0x7f060016;
@@ -86,6 +87,7 @@ public final class R {
         public static final int new_restaurant_prompt=0x7f06000c;
         public static final int notes_tag=0x7f06000b;
         public static final int save_button_title=0x7f060006;
+        public static final int settings_title=0x7f06001e;
         public static final int sit_down=0x7f060008;
         public static final int sort_dialog_title=0x7f06000f;
         public static final int sort_summary=0x7f06000e;

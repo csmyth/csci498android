@@ -2,7 +2,7 @@ package csci498.csmyth.lunchlist;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.app.ListActivity;
+import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +21,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class LunchFragment extends ListActivity {
+public class LunchFragment extends ListFragment {
 	public final static String ID_EXTRA = "csci498.csmyth.lunchlist._ID";
 	
 	Cursor model = null;
@@ -34,8 +34,8 @@ public class LunchFragment extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        helper = new RestaurantHelper(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        helper = new RestaurantHelper(getActivity());
         initList();
         
         prefs.registerOnSharedPreferenceChangeListener(prefListener);
@@ -50,7 +50,7 @@ public class LunchFragment extends ListActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		new MenuInflater(this).inflate(R.menu.option, menu);
+		new MenuInflater(getActivity()).inflate(R.menu.option, menu);
 		
 		return(super.onCreateOptionsMenu(menu));
 	}
@@ -58,10 +58,10 @@ public class LunchFragment extends ListActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.add) {
-			startActivity(new Intent(LunchFragment.this, DetailForm.class));	
+			startActivity(new Intent(getActivity(), DetailForm.class));	
 			return true;
 		} else if (item.getItemId() == R.id.prefs) {	
-			startActivity(new Intent(this, EditPreferences.class));
+			startActivity(new Intent(getActivity(), EditPreferences.class));
 			return true;
 		}
 		
@@ -70,7 +70,7 @@ public class LunchFragment extends ListActivity {
 	
 	@Override
 	public void onListItemClick(ListView list, View view, int position, long id) {
-		Intent intent = new Intent(LunchFragment.this, DetailForm.class);
+		Intent intent = new Intent(getActivity(), DetailForm.class);
 		
 		intent.putExtra(ID_EXTRA, String.valueOf(id));
 		startActivity(intent);
@@ -99,7 +99,7 @@ public class LunchFragment extends ListActivity {
 	
 	class RestaurantAdapter extends CursorAdapter {
 		RestaurantAdapter(Cursor c) {
-			super(LunchFragment.this, c);
+			super(getActivity(), c);
 		}
 		
 		@Override
