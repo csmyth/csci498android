@@ -1,5 +1,6 @@
 package csci498.csmyth.lunchlist;
 
+import android.annotation.TargetApi;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -19,6 +20,7 @@ public class AppWidget extends AppWidgetProvider {
 		}
 	}
 	
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void onHCUpdate(Context ctxt, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 		for (int i = 0; i < appWidgetIds.length; i++) {
 			Intent svcIntent = new Intent(ctxt, ListWidgetService.class);
