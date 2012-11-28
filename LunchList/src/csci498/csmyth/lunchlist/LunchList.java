@@ -25,14 +25,12 @@ public class LunchList extends FragmentActivity implements LunchFragment.OnResta
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
         LunchFragment lunch = (LunchFragment)getSupportFragmentManager().findFragmentById(R.id.lunch);
         lunch.setOnRestaurantListener(this);
     }
 	
 	public void onRestaurantSelected(long id) {
 		Intent intent = new Intent(this, DetailForm.class);
-		
 		intent.putExtra(ID_EXTRA, String.valueOf(id));
 		startActivity(intent);
 	}
