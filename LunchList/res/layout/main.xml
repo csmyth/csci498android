@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Fragment xmlns:android="http://schemas.android.com/apk/res/android" 
+<fragment xmlns:android="http://schemas.android.com/apk/res/android" 
 	class="csci498.csmyth.lunchlist.LunchFragment"
 	android:id="@+id/lunch"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent" >
-</Fragment>
+</fragment>
