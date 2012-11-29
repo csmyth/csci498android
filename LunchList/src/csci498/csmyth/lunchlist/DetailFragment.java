@@ -47,7 +47,7 @@ public class DetailFragment extends Fragment {
 		feed = (EditText)findViewById(R.id.feed);
 		location = (TextView)findViewById(R.id.location);
         
-		helper = new RestaurantHelper(this);
+		helper = new RestaurantHelper(getActivity());
 		locMgr = (LocationManager)getSystemService(LOCATION_SERVICE);
         restaurantId = getIntent().getStringExtra(LunchList.ID_EXTRA);
         
@@ -101,7 +101,7 @@ public class DetailFragment extends Fragment {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		new MenuInflater(this).inflate(R.menu.details_option, menu);
+		new MenuInflater(getActivity()).inflate(R.menu.details_option, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -109,13 +109,13 @@ public class DetailFragment extends Fragment {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.feed) {
 			if (isNetworkAvailable()) {
-				Intent intent = new Intent(this, FeedActivity.class);
+				Intent intent = new Intent(getActivity(), FeedActivity.class);
 				
 				intent.putExtra(FeedActivity.FEED_URL, feed.getText().toString());
 				startActivity(intent);
 			} else {
 				Toast
-					.makeText(this, UNAVAIL, Toast.LENGTH_LONG)
+					.makeText(getActivity(), UNAVAIL, Toast.LENGTH_LONG)
 					.show();
 			}
 			return true;
@@ -123,7 +123,7 @@ public class DetailFragment extends Fragment {
 			locMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, onLocationChange);
 			return true;
 		} else if (item.getItemId() == R.id.map) {
-			Intent intent = new Intent(this, RestaurantMap.class);
+			Intent intent = new Intent(getActivity(), RestaurantMap.class);
 			
 			intent.putExtra(RestaurantMap.EXTRA_LATITUDE, latitude);
 			intent.putExtra(RestaurantMap.EXTRA_LONGITUDE, longitude);
@@ -148,7 +148,7 @@ public class DetailFragment extends Fragment {
 			locMgr.removeUpdates(onLocationChange);
 			
 			Toast
-				.makeText(DetailFragment.this, LOCATION_SAVE_TEXT, Toast.LENGTH_LONG)
+				.makeText(getActivity(), LOCATION_SAVE_TEXT, Toast.LENGTH_LONG)
 				.show();
 		}
 		
