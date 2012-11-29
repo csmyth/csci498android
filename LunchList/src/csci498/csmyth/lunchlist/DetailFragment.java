@@ -45,31 +45,6 @@ public class DetailFragment extends Fragment {
 	}
 	
 	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		
-		helper.close();
-	}
-	
-	@Override
-	public void onPause() {
-		save();
-		locMgr.removeUpdates(onLocationChange);
-		super.onPause();
-	}
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-		helper = new RestaurantHelper(getActivity());
-		restaurantId = getActivity().getIntent().getStringExtra(LunchList.ID_EXTRA);
-		
-		if (restaurantId != null) {
-			load();
-		}
-	}
-	
-	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		return inflater.inflate(R.layout.detail_form, container, false);
 	}
@@ -88,23 +63,22 @@ public class DetailFragment extends Fragment {
 	}
 	
 	@Override
-	public void onSaveInstanceState(Bundle state) {
-		super.onSaveInstanceState(state);
-		
-		state.putString("name", name.getText().toString());
-		state.putString("address", address.getText().toString());
-		state.putString("notes", notes.getText().toString());
-		state.putInt("type", types.getCheckedRadioButtonId());
+	public void onPause() {
+		save();
+		helper.close();
+		locMgr.removeUpdates(onLocationChange);
+		super.onPause();
 	}
 	
 	@Override
-	public void onRestoreInstanceState(Bundle state) {
-		super.onRestoreInstanceState(state);
+	public void onResume() {
+		super.onResume();
+		helper = new RestaurantHelper(getActivity());
+		restaurantId = getActivity().getIntent().getStringExtra(LunchList.ID_EXTRA);
 		
-		name.setText(state.getString("name"));
-		address.setText(state.getString("address"));
-		notes.setText(state.getString("notes"));
-		types.check(state.getInt("type"));
+		if (restaurantId != null) {
+			load();
+		}
 	}
 	
 	@Override
@@ -151,7 +125,7 @@ public class DetailFragment extends Fragment {
 	}
 
 	private boolean isNetworkAvailable() {
-		ConnectivityManager cm = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+		ConnectivityManager cm = (ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = cm.getActiveNetworkInfo();
 		return (info != null);
 	}
