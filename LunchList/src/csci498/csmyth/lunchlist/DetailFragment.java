@@ -1,6 +1,5 @@
 package csci498.csmyth.lunchlist;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.location.Location;
@@ -9,6 +8,7 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,7 +18,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DetailFragment extends Activity {
+public class DetailFragment extends Fragment {
 	EditText name = null;
 	EditText address = null;
 	RadioGroup types = null;
