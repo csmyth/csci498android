@@ -106,9 +106,8 @@ public class DetailFragment extends Fragment {
 	}
 	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		new MenuInflater(getActivity()).inflate(R.menu.details_option, menu);
-		return super.onCreateOptionsMenu(menu);
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.details_option, menu);
 	}
 	
 	@Override
