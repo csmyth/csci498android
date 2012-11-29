@@ -59,12 +59,13 @@ public final class R {
     }
     public static final class layout {
         public static final int alarm=0x7f030000;
-        public static final int detail_form=0x7f030001;
-        public static final int main=0x7f030002;
-        public static final int map=0x7f030003;
-        public static final int row=0x7f030004;
-        public static final int widget=0x7f030005;
-        public static final int widget_row=0x7f030006;
+        public static final int detail_activity=0x7f030001;
+        public static final int detail_form=0x7f030002;
+        public static final int main=0x7f030003;
+        public static final int map=0x7f030004;
+        public static final int row=0x7f030005;
+        public static final int widget=0x7f030006;
+        public static final int widget_row=0x7f030007;
     }
     public static final class menu {
         public static final int details_option=0x7f080000;
