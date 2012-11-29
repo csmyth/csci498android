@@ -97,12 +97,11 @@ public class DetailFragment extends Fragment {
 	}
 	
 	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
+	public void onPrepareOptionsMenu(Menu menu) {
 		if (restaurantId == null) {
 			menu.findItem(R.id.location).setEnabled(false);
 			menu.findItem(R.id.map).setEnabled(false);
 		}
-		return super.onPrepareOptionsMenu(menu);
 	}
 	
 	@Override
