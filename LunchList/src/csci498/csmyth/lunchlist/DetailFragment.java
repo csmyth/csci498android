@@ -59,6 +59,17 @@ public class DetailFragment extends Fragment {
 	}
 	
 	@Override
+	public void onResume() {
+		super.onResume();
+		helper = new RestaurantHelper(getActivity());
+		restaurantId = getActivity().getIntent().getStringExtra(LunchList.ID_EXTRA);
+		
+		if (restaurantId != null) {
+			load();
+		}
+	}
+	
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		return inflater.inflate(R.layout.detail_form, container, false);
 	}
